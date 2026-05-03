@@ -34,7 +34,7 @@ export default function Home() {
           <h1 className="font-display text-white" data-testid="hero-title">
             <span className="block text-[clamp(80px,16vw,260px)]">ALL WE</span>
             <span className="block text-[clamp(80px,16vw,260px)] pl-[8%]">KNOW IS</span>
-            <span className="block text-[clamp(80px,16vw,260px)] text-lab-red">WORK.</span>
+            <span className="block text-[clamp(80px,16vw,260px)] text-lab-red">WERK.</span>
           </h1>
 
           <p className="max-w-xl mt-8 text-lg sm:text-xl text-white/85" data-testid="hero-sub">
