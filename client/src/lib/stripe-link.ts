@@ -13,7 +13,10 @@
  *   1. Stripe dashboard → Payment Links → New
  *   2. Set price (or one link per session type if prices differ)
  *   3. Copy the URL and replace STRIPE_PAYMENT_LINK below
- *   4. Set "Confirmation page" → custom URL → https://thelab909.com/#/booked
+ *   4. After payment → Don't show confirmation page → custom URL
+ *      → https://thelab909.com/#/booked?cri={CHECKOUT_SESSION_ID}
+ *      (or rely on the client_reference_id we pass through; the /booked page
+ *      reads any of `client_reference_id`, `cri`, or `ref`.)
  */
 
 export const STRIPE_PAYMENT_LINK = "https://buy.stripe.com/REPLACE_WITH_YOUR_LINK";

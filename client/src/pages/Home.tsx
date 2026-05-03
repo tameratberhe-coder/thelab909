@@ -1,10 +1,11 @@
 import { Link } from "wouter";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Ticker } from "@/components/Ticker";
 import { AutoVideo } from "@/components/AutoVideo";
 import { Logo } from "@/components/Logo";
 import { Layout } from "@/components/Layout";
 import { LabA } from "@/components/LabA";
+import { ChevronDivider } from "@/components/ChevronDivider";
 import { REELS } from "@/lib/videos";
 
 export default function Home() {
@@ -22,8 +23,12 @@ export default function Home() {
             testid="video-hero"
           />
         </div>
+        {/* Hero overlay (D1): lifted from ~78% top / 22% mid / 85% bottom
+            to a lighter 45% top / 10% mid / 70% bottom so the reel actually
+            reads. "WERK." still wins because it's red, not because we drowned
+            the footage. */}
         <div className="absolute inset-0 -z-20 pointer-events-none" style={{
-          backgroundImage: `linear-gradient(105deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.45) 35%, rgba(0,0,0,0.22) 60%, rgba(0,0,0,0.85) 100%), linear-gradient(180deg, rgba(0,0,0,0.30) 0%, rgba(0,0,0,0.10) 40%, rgba(0,0,0,0.85) 100%)`,
+          backgroundImage: `linear-gradient(105deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.20) 40%, rgba(0,0,0,0.10) 65%, rgba(0,0,0,0.55) 100%), linear-gradient(180deg, rgba(0,0,0,0.20) 0%, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.70) 100%)`,
         }} />
 
         <div className="max-w-[1400px] mx-auto w-full px-4 sm:px-8 pt-32 pb-16">
@@ -44,7 +49,10 @@ export default function Home() {
             A sports performance and fitness training facility in the 909. Built for athletes, families, and anyone tired of going through the motions.
           </p>
 
-          <div className="flex flex-wrap gap-3 mt-8" data-testid="hero-ctas">
+          {/* One primary CTA per section (D2): hero owns "Book a Consultation."
+             "See the Work" demoted to a text link — it's a navigation aid, not
+             a competing decision. */}
+          <div className="flex flex-wrap items-center gap-6 mt-8" data-testid="hero-ctas">
             <Link
               href="/book"
               className="inline-flex items-center gap-2 bg-white text-black font-bold uppercase tracking-wider text-sm px-6 py-4 rounded-full thrust hover:bg-lab-red hover:text-white"
@@ -55,10 +63,10 @@ export default function Home() {
             <a
               href="#film"
               onClick={(e) => { e.preventDefault(); document.getElementById("film")?.scrollIntoView({ behavior: "smooth" }); }}
-              className="inline-flex items-center gap-2 border border-white/30 text-white font-bold uppercase tracking-wider text-sm px-6 py-4 rounded-full thrust hover:bg-white hover:text-black"
+              className="label-mono text-white/70 hover:text-white border-b border-white/30 hover:border-white pb-1 transition-colors"
               data-testid="cta-watch"
             >
-              <Play className="w-4 h-4" /> See the Work
+              See the work ↓
             </a>
           </div>
 
@@ -98,6 +106,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Section break (D3): chevron mark used as a system divider, not a letterform. */}
+      <ChevronDivider className="px-4 sm:px-8" />
+
       <Ticker />
 
       {/* TRAIN — video cards */}
@@ -119,6 +130,7 @@ export default function Home() {
                 <span className="inline-block self-start bg-lab-red text-white label-mono px-3 py-1 rounded-full mb-3">Private coaching</span>
                 <h3 className="font-archivo text-3xl sm:text-4xl leading-none">1-ON-1<br/>TRAINING</h3>
                 <p className="text-white/70 text-sm mt-3 max-w-md">Private coaching designed around your body, goals, and schedule.</p>
+                {/* Demoted to text link (D2). The hero owns the primary book CTA. */}
                 <Link href="/book" className="mt-5 inline-flex items-center gap-2 label-mono text-lab-red border-b border-lab-red/60 pb-1 self-start hover:text-white hover:border-white" data-testid="card-private-cta">
                   Book a session <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
@@ -160,6 +172,7 @@ export default function Home() {
           </h2>
           <p className="text-lg text-white/70 max-w-xl mb-12">Six ways to train. Every program built around your goal — not a template. Start with a free consultation, leave with a plan.</p>
 
+          {/* Chevron divider (D3): one appearance per long section, never on CTAs. */}
           <div className="border-t border-white/10">
             {[
               { n: "01", h: "Sports Performance", c: "Athletes", d: "Position-specific training for athletes — football, basketball, soccer, track, baseball. Speed, agility, explosive power, recovery — built around your season." },
@@ -253,8 +266,11 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Section break (D3) before the coach section. */}
+      <ChevronDivider className="px-4 sm:px-8" />
+
       {/* COACH */}
-      <section className="bg-black text-white py-24 sm:py-32 px-4 sm:px-8 border-t border-white/10" data-testid="coach">
+      <section className="bg-black text-white py-24 sm:py-32 px-4 sm:px-8" data-testid="coach">
         <div className="max-w-[1400px] mx-auto grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div className="relative aspect-[3/4] overflow-hidden rounded-sm bg-zinc-900">
             <AutoVideo src={REELS.alex.src} poster={REELS.alex.poster} testid="video-coach" />
@@ -266,8 +282,9 @@ export default function Home() {
             <h2 className="font-archivo text-4xl sm:text-6xl leading-[0.95] mb-6">COACHED BY SOMEONE WHO&apos;S <span className="text-lab-red">DONE THE WERK.</span></h2>
             <p className="text-white/80 text-lg mb-4">The LAB 909 was founded — and is still run — by a coach who came up the same way he coaches now: with intention, accountability, and zero patience for shortcuts.</p>
             <p className="text-white/80 text-lg mb-8">Every session, every set, every cue is delivered by the person whose name is on the door.</p>
-            <Link href="/book" className="inline-flex items-center gap-2 bg-white text-black font-bold uppercase tracking-wider text-sm px-6 py-4 rounded-full thrust hover:bg-lab-red hover:text-white">
-              Book a Consultation <ArrowRight className="w-4 h-4" />
+            {/* Demoted to text link (D2): the final red block owns the primary CTA. */}
+            <Link href="/book" className="inline-flex items-center gap-2 label-mono text-lab-red border-b border-lab-red/60 pb-1 hover:text-white hover:border-white">
+              Book with the head coach <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
         </div>

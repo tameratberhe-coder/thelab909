@@ -180,11 +180,14 @@
     font-family: var(--font-mono);
   }
 
-  /* Eyebrow / monospace label */
+  /* Eyebrow / small caps label.
+   * Originally monospace; consolidated onto Inter (body) so the site uses
+   * 2 families total: Archivo Black for shouts, Inter for everything else.
+   * (Design move D5.) */
   .label-mono {
-    font-family: var(--font-mono);
+    font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
     font-size: 11px;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.16em;
     text-transform: uppercase;
   }

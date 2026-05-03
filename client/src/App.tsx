@@ -22,6 +22,7 @@ import Account from "@/pages/Account";
 import Admin from "@/pages/Admin";
 import Privacy from "@/pages/Privacy";
 import Terms from "@/pages/Terms";
+import Booked from "@/pages/Booked";
 
 function AppRouter() {
   return (
@@ -39,6 +40,7 @@ function AppRouter() {
       <Route path="/admin" component={Admin} />
       <Route path="/privacy" component={Privacy} />
       <Route path="/terms" component={Terms} />
+      <Route path="/booked" component={Booked} />
       <Route component={NotFound} />
     </Switch>
   );
