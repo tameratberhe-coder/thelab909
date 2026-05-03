@@ -266,7 +266,7 @@ export default function Home() {
       {/* Section break (D3) before the faces gallery. */}
       <ChevronDivider className="px-4 sm:px-8" />
 
-      {/* FACES — True Power Media photoshoot, real LAB athletes. */}
+      {/* FACES — True Power Media photoshoot, real LAB athletes/coaches. */}
       <section className="bg-black text-white py-24 sm:py-32 px-4 sm:px-8" data-testid="faces">
         <div className="max-w-[1400px] mx-auto">
           <div className="flex items-end justify-between mb-12 gap-8 flex-wrap">
@@ -280,15 +280,36 @@ export default function Home() {
             <p className="label-mono text-white/40 max-w-xs">Photography by True Power Media. No models, no stock. Just the people who train here.</p>
           </div>
 
-          {/* 6-portrait grid — vertical 9:16 to match phone-shoot source files. */}
+          {/* Hero band — hex tunnel landscape, sets the stage. */}
+          <div className="relative aspect-[16/7] overflow-hidden rounded-sm bg-zinc-900 border border-white/5 mb-3 sm:mb-4 group">
+            <img
+              src="/photos/hero-tunnel.jpg"
+              alt="Athlete in the LAB hex tunnel"
+              loading="lazy"
+              className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+            <div className="absolute bottom-0 left-0 p-6 sm:p-8">
+              <p className="font-archivo text-2xl sm:text-4xl leading-none mb-2">THE TUNNEL</p>
+              <p className="label-mono text-white/70">Where the werk lives.</p>
+            </div>
+          </div>
+
+          {/* 12-portrait grid — vertical 9:16 to match phone-shoot source files. */}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
             {[
+              { src: "/photos/coach-portrait.jpg", label: "Head Coach", caption: "On the floor since '19" },
               { src: "/photos/apparel-red.jpg", label: "Red Crew", caption: "LAB tee" },
-              { src: "/photos/coach-pose.jpg", label: "Spotlight", caption: "On the floor" },
+              { src: "/photos/coach-pose.jpg", label: "Spotlight", caption: "Lock in" },
+              { src: "/photos/power.jpg", label: "Power", caption: "LAB athlete" },
               { src: "/photos/athlete-stance.jpg", label: "Stance", caption: "Ready position" },
-              { src: "/photos/power.jpg", label: "Power", caption: "Strength" },
-              { src: "/photos/athlete-aggro.jpg", label: "Lock In", caption: "Game day" },
+              { src: "/photos/athlete-aggro.jpg", label: "Game Day", caption: "Mode on" },
               { src: "/photos/apparel-hood-1.jpg", label: "Hood Up", caption: "In the werk" },
+              { src: "/photos/apparel-orange.jpg", label: "Orange Crew", caption: "Crew uniform" },
+              { src: "/photos/community-pair.jpg", label: "The Crew", caption: "Trains together" },
+              { src: "/photos/moody.jpg", label: "Down To Werk", caption: "After the warmup" },
+              { src: "/photos/hero-duo.jpg", label: "Two-Up", caption: "Same standard" },
+              { src: "/photos/hero-tunnel-2.jpg", label: "Hex Stage", caption: "Performance lane" },
             ].map((p) => (
               <div key={p.src} className="relative aspect-[9/16] overflow-hidden rounded-sm bg-zinc-900 border border-white/5 group">
                 <img
@@ -305,6 +326,8 @@ export default function Home() {
               </div>
             ))}
           </div>
+
+          <p className="label-mono text-white/30 mt-8 text-[11px]">→ Photography credit: True Power Media</p>
         </div>
       </section>
 
