@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <title>The LAB 909 — Train. Werk.</title>
-    <meta name="description" content="The LAB 909 — sports performance and fitness training in the Inland Empire. Book a session, become a member, gear up." />
+    <title>The LAB 909 — Coming Soon.</title>
+    <meta name="description" content="The LAB 909 — sports performance and fitness training in the Inland Empire. Coming soon. Get on the list." />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
     <link rel="icon" type="image/png" sizes="64x64" href="/favicon.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -16,6 +16,18 @@
     />
   </head>
   <body>
+    <!--
+      Netlify Forms registration. This static form is what Netlify scans at
+      deploy time so it knows the "waitlist" form exists. The real form lives
+      inside the React app (client/src/pages/Soon.tsx) and POSTs to "/" with
+      form-name=waitlist; submissions land in Netlify dashboard → Forms.
+      Required fields must match the React form exactly.
+    -->
+    <form name="waitlist" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="bot-field" />
+    </form>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

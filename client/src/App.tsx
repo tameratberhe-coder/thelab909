@@ -23,11 +23,21 @@ import Admin from "@/pages/Admin";
 import Privacy from "@/pages/Privacy";
 import Terms from "@/pages/Terms";
 import Booked from "@/pages/Booked";
+import Soon from "@/pages/Soon";
 
 function AppRouter() {
   return (
     <Switch>
-      <Route path="/" component={Home} />
+      {/*
+       * 2026-05 — site is in pre-launch "coming soon" mode. The waitlist page
+       * is mounted at "/" so any visitor to thelab909.com sees only the
+       * email capture. The full site stays accessible via direct routes
+       * (/site for the marketing home, plus /book, /shop, /membership, etc.)
+       * so the team can preview while we collect the waitlist. To go live,
+       * swap the "/" route back to Home and delete the /site alias.
+       */}
+      <Route path="/" component={Soon} />
+      <Route path="/site" component={Home} />
       <Route path="/login" component={Login} />
       <Route path="/signup" component={Signup} />
       <Route path="/book" component={Book} />
