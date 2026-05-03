@@ -1,0 +1,274 @@
+import { Link } from "wouter";
+import { ArrowRight, Play } from "lucide-react";
+import { Ticker } from "@/components/Ticker";
+import heroPoster from "@/assets/hero-poster.jpg";
+import trainerImg from "@/assets/trainer-coaching.jpg";
+
+export default function Home() {
+  return (
+    <div className="bg-black text-white">
+      {/* HERO */}
+      <section className="relative min-h-screen flex flex-col justify-center overflow-hidden isolate" data-testid="hero">
+        <div className="absolute inset-0 -z-30">
+          <iframe
+            title="LAB 909 hero"
+            src="https://player.vimeo.com/video/878478405?h=641cf57b6e&autoplay=1&loop=1&autopause=0&muted=1&background=1&title=0&byline=0&portrait=0&controls=0"
+            allow="autoplay; fullscreen; picture-in-picture"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+            style={{ width: "56.25vh", height: "100vh", minWidth: "100vw", minHeight: "177.77vw" }}
+          />
+        </div>
+        <div className="absolute inset-0 -z-20 pointer-events-none" style={{
+          backgroundImage: `linear-gradient(105deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.55) 35%, rgba(0,0,0,0.30) 60%, rgba(0,0,0,0.85) 100%), linear-gradient(180deg, rgba(0,0,0,0.30) 0%, rgba(0,0,0,0.10) 40%, rgba(0,0,0,0.85) 100%)`,
+        }} />
+        <div className="absolute inset-0 -z-40" style={{ backgroundImage: `url(${heroPoster})`, backgroundSize: "cover", backgroundPosition: "center" }} />
+
+        <div className="max-w-[1400px] mx-auto w-full px-4 sm:px-8 pt-32 pb-16">
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur border border-white/15 rounded-full px-4 py-1.5 mb-8" data-testid="hero-eyebrow">
+            <span className="w-2 h-2 rounded-full bg-lab-red animate-pulse" />
+            <span className="label-mono">Inland Empire · Est. 2019</span>
+          </div>
+
+          <h1 className="font-display text-white" data-testid="hero-title">
+            <span className="block text-[clamp(80px,16vw,260px)]">DON&apos;T</span>
+            <span className="block text-[clamp(80px,16vw,260px)] pl-[8%]">TRAIN.</span>
+            <span className="block text-[clamp(80px,16vw,260px)] text-lab-red">WERK.</span>
+          </h1>
+
+          <p className="max-w-xl mt-8 text-lg sm:text-xl text-white/85" data-testid="hero-sub">
+            A sports performance and fitness training facility in the 909. Built for athletes, families, and anyone tired of going through the motions.
+          </p>
+
+          <div className="flex flex-wrap gap-3 mt-8" data-testid="hero-ctas">
+            <Link
+              href="/book"
+              className="inline-flex items-center gap-2 bg-white text-black font-bold uppercase tracking-wider text-sm px-6 py-4 rounded-full thrust hover:bg-lab-red hover:text-white"
+              data-testid="cta-book"
+            >
+              Book a Consultation <ArrowRight className="w-4 h-4" />
+            </Link>
+            <a
+              href="#film"
+              onClick={(e) => { e.preventDefault(); document.getElementById("film")?.scrollIntoView({ behavior: "smooth" }); }}
+              className="inline-flex items-center gap-2 border border-white/30 text-white font-bold uppercase tracking-wider text-sm px-6 py-4 rounded-full thrust hover:bg-white hover:text-black"
+              data-testid="cta-watch"
+            >
+              <Play className="w-4 h-4" /> See the Work
+            </a>
+          </div>
+
+          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl">
+            {[
+              { b: "2019", s: "Founded" },
+              { b: "11", s: "Programs" },
+              { b: "1-on-1", s: "Coaching" },
+              { b: "909", s: "Inland Empire" },
+            ].map((s) => (
+              <div key={s.s} className="border-l-2 border-lab-red pl-4">
+                <div className="font-archivo text-2xl sm:text-3xl">{s.b}</div>
+                <div className="label-mono text-white/60 mt-1">{s.s}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* MANIFESTO */}
+      <section className="bg-black text-white py-24 sm:py-32 px-4 sm:px-8" data-testid="manifesto">
+        <div className="max-w-[1400px] mx-auto">
+          <p className="label-mono text-white/50 mb-8">/ Manifesto</p>
+          <h2 className="font-display leading-[0.85]">
+            <span className="block text-[clamp(72px,14vw,220px)]">PRESSURE</span>
+            <span className="block text-[clamp(72px,14vw,220px)] text-lab-red pl-[6%]">MAKES</span>
+            <span className="block text-[clamp(72px,14vw,220px)]">DIAMONDS.</span>
+          </h2>
+          <div className="border-t border-white/10 mt-16 pt-10 grid md:grid-cols-2 gap-12">
+            <h3 className="font-archivo text-2xl sm:text-3xl leading-tight">We&apos;re not a gym. We&apos;re a training facility — built for people who want to know what they&apos;re capable of.</h3>
+            <div className="text-white/80 space-y-5 text-lg">
+              <p>No mirrors to perform in. No machines to hide behind. Just turf, iron, and a coach watching every rep. The work is the work, and we don&apos;t let you skip it.</p>
+              <p>You bring the effort. We bring the standard. That&apos;s the deal.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Ticker />
+
+      {/* TRAIN — image cards */}
+      <section className="bg-black text-white py-24 sm:py-32 px-4 sm:px-8" data-testid="train">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 items-end mb-12">
+            <p className="label-mono text-white/50">/ Train with purpose</p>
+            <h2 className="font-display text-right leading-[0.9]">
+              <span className="block text-[clamp(56px,10vw,160px)]">EVERY REP.</span>
+              <span className="block text-[clamp(56px,10vw,160px)] text-lab-red">EVERY DAY.</span>
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-4">
+            <div className="md:row-span-2 relative aspect-[3/4] md:aspect-auto overflow-hidden rounded-sm group" data-testid="card-private">
+              <img src={trainerImg} alt="Private coaching at LAB 909" className="absolute inset-0 w-full h-full object-cover grayscale-[0.2] group-hover:scale-105 transition-transform duration-700" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+              <div className="relative h-full flex flex-col justify-end p-6 sm:p-8">
+                <span className="inline-block self-start bg-lab-red text-white label-mono px-3 py-1 rounded-full mb-3">Private coaching</span>
+                <h3 className="font-archivo text-3xl sm:text-4xl leading-none">1-ON-1<br/>TRAINING</h3>
+                <p className="text-white/70 text-sm mt-3 max-w-md">Private coaching designed around your body, goals, and schedule.</p>
+                <Link href="/book" className="mt-5 inline-flex items-center gap-2 label-mono text-lab-red border-b border-lab-red/60 pb-1 self-start hover:text-white hover:border-white" data-testid="card-private-cta">
+                  Book a session <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
+
+            <div className="md:col-span-2 relative aspect-[16/10] overflow-hidden rounded-sm group" data-testid="card-sports">
+              <div className="absolute inset-0 bg-gradient-to-br from-zinc-900 to-black" />
+              <div className="absolute -inset-1 opacity-30 mix-blend-screen bg-[radial-gradient(circle_at_30%_30%,#ee273744,transparent_50%)]" />
+              <div className="relative h-full flex flex-col justify-end p-6 sm:p-8">
+                <span className="inline-block self-start bg-lab-red text-white label-mono px-3 py-1 rounded-full mb-3">Sports performance</span>
+                <h3 className="font-archivo text-3xl sm:text-5xl leading-none">BUILT FOR<br/>ATHLETES</h3>
+                <Link href="/book" className="mt-5 inline-flex items-center gap-2 label-mono text-white border-b border-white/40 pb-1 self-start hover:text-lab-red hover:border-lab-red" data-testid="card-sports-cta">
+                  Explore <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
+
+            <div className="md:col-span-2 relative aspect-[16/10] overflow-hidden rounded-sm bg-lab-red text-white p-6 sm:p-8 group" data-testid="card-follow">
+              <span className="absolute top-6 left-6 bg-white text-lab-red label-mono px-3 py-1 rounded-full">@thelab909</span>
+              <div className="h-full flex flex-col justify-end">
+                <h3 className="font-archivo text-3xl sm:text-5xl leading-none">FOLLOW<br/>THE WORK.</h3>
+                <a href="https://www.instagram.com/thelab909/" target="_blank" rel="noopener" className="mt-5 inline-flex items-center gap-2 label-mono border-b border-white/60 pb-1 self-start hover:text-black hover:border-black">
+                  Instagram <ArrowRight className="w-3.5 h-3.5" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PROGRAMS list */}
+      <section className="bg-black text-white py-24 sm:py-32 px-4 sm:px-8 border-t border-white/10" data-testid="programs">
+        <div className="max-w-[1400px] mx-auto">
+          <p className="label-mono text-white/50 mb-6">/ Programs</p>
+          <h2 className="font-display leading-[0.9] mb-6">
+            <span className="block text-[clamp(56px,12vw,180px)]">PICK</span>
+            <span className="block text-[clamp(56px,12vw,180px)]">YOUR LANE.</span>
+          </h2>
+          <p className="text-lg text-white/70 max-w-xl mb-12">Six ways to train. Every program built around your goal — not a template. Start with a free consultation, leave with a plan.</p>
+
+          <div className="border-t border-white/10">
+            {[
+              { n: "01", h: "Sports Performance", c: "Athletes", d: "Position-specific training for athletes — football, basketball, soccer, track, baseball. Speed, agility, explosive power, recovery — built around your season." },
+              { n: "02", h: "1-on-1 Private", c: "Solo", d: "Private coaching designed around your body, your goals, your schedule. The most direct path to a stronger version of you." },
+              { n: "03", h: "Family Training", c: "Crew", d: "The whole family in the gym at once. Different intensities, same standard. We bring out the best in each athlete." },
+              { n: "04", h: "Small Group", c: "Group of 4", d: "Train with a small crew of athletes pushing the same direction. Same drills, more energy, same accountability." },
+              { n: "05", h: "Group Fitness", c: "Class", d: "Coach-led conditioning class. Drop in, push hard, leave wrecked. Built for the community member who hates gyms." },
+              { n: "06", h: "Free Consultation", c: "Start here", d: "Tell us your goal — we map a plan. No card needed, no commitment. Just a real conversation about what you want from your training." },
+            ].map((p) => (
+              <Link
+                key={p.n}
+                href="/book"
+                className="relative grid grid-cols-[60px_1fr_auto] sm:grid-cols-[110px_1fr_auto] items-center gap-4 sm:gap-8 border-b border-white/10 py-6 sm:py-8 group transition-colors overflow-hidden"
+                data-testid={`row-program-${p.n}`}
+              >
+                <span className="absolute inset-0 bg-lab-red translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(.2,.8,.2,1)]" />
+                <span className="relative font-archivo text-3xl sm:text-5xl text-lab-red group-hover:text-white">{p.n}</span>
+                <div className="relative">
+                  <h3 className="font-archivo text-2xl sm:text-4xl leading-none mb-2 group-hover:text-white">{p.h}</h3>
+                  <p className="text-white/70 text-sm sm:text-base group-hover:text-white/90">{p.d}</p>
+                </div>
+                <span className="relative bg-white/10 text-white label-mono px-3 py-1 rounded-full whitespace-nowrap group-hover:bg-white group-hover:text-lab-red">
+                  {p.c}
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* WHITE STATEMENT */}
+      <section className="bg-white text-black py-24 sm:py-32 px-4 sm:px-8 relative overflow-hidden" data-testid="statement">
+        <div aria-hidden className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <span className="font-archivo text-[clamp(180px,30vw,500px)] text-black/[0.04] select-none whitespace-nowrap">WERK.</span>
+        </div>
+        <div className="relative max-w-4xl mx-auto text-center">
+          <p className="font-archivo uppercase text-3xl sm:text-5xl lg:text-6xl leading-tight">
+            &ldquo;We coach people who refuse to settle for the bare minimum.&rdquo;
+          </p>
+          <p className="label-mono mt-6">— The LAB 909</p>
+        </div>
+      </section>
+
+      {/* FILM */}
+      <section id="film" className="bg-black text-white py-24 sm:py-32 px-4 sm:px-8" data-testid="film">
+        <div className="max-w-[1400px] mx-auto">
+          <p className="label-mono text-white/50 mb-6">/ Film</p>
+          <h2 className="font-display leading-[0.9] mb-12">
+            <span className="block text-[clamp(56px,12vw,180px)]">THIS IS</span>
+            <span className="block text-[clamp(56px,12vw,180px)] text-lab-red">THE WORK.</span>
+          </h2>
+          <div className="grid md:grid-cols-[2fr_1fr] gap-8 items-end">
+            <div className="aspect-[9/16] max-w-md mx-auto md:mx-0 bg-black border border-white/10 overflow-hidden">
+              <iframe
+                title="The LAB 909 film"
+                src="https://player.vimeo.com/video/878478405?h=641cf57b6e&title=0&byline=0&portrait=0"
+                allow="autoplay; fullscreen; picture-in-picture"
+                className="w-full h-full"
+                frameBorder={0}
+                allowFullScreen
+              />
+            </div>
+            <div>
+              <p className="label-mono text-white/50">Featured · 00:24</p>
+              <h3 className="font-archivo text-3xl sm:text-5xl leading-none mt-2 mb-6">PRESSURE.MOV</h3>
+              <p className="text-white/70 mb-6">A short look inside the facility. The reps, the breath, the sound of the work. No music, no narration. Just what we do.</p>
+              <a href="https://vimeo.com/878478405/641cf57b6e" target="_blank" rel="noopener" className="inline-flex items-center gap-2 border border-white/30 text-white label-mono px-5 py-3 rounded-full hover:bg-white hover:text-black thrust">
+                Watch on Vimeo <ArrowRight className="w-3.5 h-3.5" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* COACH */}
+      <section className="bg-black text-white py-24 sm:py-32 px-4 sm:px-8 border-t border-white/10" data-testid="coach">
+        <div className="max-w-[1400px] mx-auto grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div className="relative aspect-[3/4] overflow-hidden rounded-sm">
+            <img src={trainerImg} alt="Head coach at LAB 909" className="absolute inset-0 w-full h-full object-cover grayscale" />
+            <span className="absolute top-5 left-5 bg-lab-red text-white label-mono px-3 py-1 rounded-full">Head Coach</span>
+          </div>
+          <div>
+            <p className="label-mono text-white/50 mb-4">/ Coach</p>
+            <h2 className="font-archivo text-4xl sm:text-6xl leading-[0.95] mb-6">COACHED BY SOMEONE WHO&apos;S <span className="text-lab-red">DONE THE WORK.</span></h2>
+            <p className="text-white/80 text-lg mb-4">The LAB 909 was founded — and is still run — by a coach who came up the same way he coaches now: with intention, accountability, and zero patience for shortcuts.</p>
+            <p className="text-white/80 text-lg mb-8">Every session, every set, every cue is delivered by the person whose name is on the door.</p>
+            <Link href="/book" className="inline-flex items-center gap-2 bg-white text-black font-bold uppercase tracking-wider text-sm px-6 py-4 rounded-full thrust hover:bg-lab-red hover:text-white">
+              Book a Consultation <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA — RED */}
+      <section className="bg-lab-red text-white py-24 sm:py-32 px-4 sm:px-8 relative overflow-hidden" data-testid="cta-block">
+        <div aria-hidden className="absolute right-0 bottom-0 pointer-events-none select-none">
+          <span className="font-archivo text-[clamp(220px,40vw,720px)] leading-none text-black/15">909</span>
+        </div>
+        <div className="relative max-w-[1400px] mx-auto">
+          <p className="label-mono text-white/70 mb-6">/ Ready?</p>
+          <h2 className="font-display leading-[0.9]">
+            <span className="block text-[clamp(64px,13vw,220px)]">STOP THINKING</span>
+            <span className="block text-[clamp(64px,13vw,220px)] text-black">ABOUT IT.</span>
+          </h2>
+          <p className="mt-6 max-w-md text-lg text-white/95">Free 10-minute consultation. Tell us your goal, we&apos;ll build the plan.</p>
+          <div className="mt-8 flex flex-wrap gap-4">
+            <Link href="/book" className="inline-flex items-center gap-2 bg-black text-white font-bold uppercase tracking-wider text-sm px-6 py-4 rounded-full thrust hover:bg-white hover:text-black" data-testid="cta-book-final">
+              Book a Consultation <ArrowRight className="w-4 h-4" />
+            </Link>
+            <Link href="/membership" className="inline-flex items-center gap-2 border border-white text-white font-bold uppercase tracking-wider text-sm px-6 py-4 rounded-full thrust hover:bg-white hover:text-lab-red" data-testid="cta-membership">
+              Become a Member
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}

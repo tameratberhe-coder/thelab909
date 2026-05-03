@@ -81,11 +81,18 @@ export default {
           busy: "rgb(239 68 68)",
           offline: "rgb(156 163 175)",
         },
+        lab: {
+          red: "#ee2737",
+          ink: "#0a0a0a",
+          bone: "#fafaf9",
+        },
       },
       fontFamily: {
         sans: ["var(--font-sans)"],
         serif: ["var(--font-serif)"],
         mono: ["var(--font-mono)"],
+        display: ["var(--font-display)"],
+        archivo: ["var(--font-archivo)"],
       },
       keyframes: {
         "accordion-down": {
