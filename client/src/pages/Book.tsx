@@ -5,7 +5,7 @@ import { useAuth } from "@/lib/auth";
 import { money, fmtDate, fmtDateTime, isoDate } from "@/lib/format";
 import { imageFor } from "@/lib/images";
 import { getStaticSlots, type SlotsResult } from "@/lib/static-slots";
-import { STATIC_SESSION_TYPES } from "@/lib/session-types-static";
+import { STATIC_SESSION_TYPES, INQUIRY_ONLY_SLUGS } from "@/lib/session-types-static";
 import { buildSquareUrl, isSquareLinkConfigured } from "@/lib/square-link";
 import { getStoredUtm } from "@/lib/utm";
 import type { SessionType } from "@shared/schema";
@@ -42,7 +42,8 @@ export default function Book() {
   }
 
   // "Lock it in" — redirect to Square Online Checkout with booking metadata.
-  // Free consultations skip payment and just confirm the slot client-side.
+  // Inquiry-only session types (team training, off-site, anything priced at $0)
+  // skip Square and send a structured quote request via mailto.
   function onConfirm() {
     setError(null);
     if (!selectedType || !selectedTs) return;
@@ -51,13 +52,15 @@ export default function Book() {
       return;
     }
     const utm = getStoredUtm();
-    if (selectedType.priceCents === 0) {
-      // Free consultation: send a mailto so the coach gets the request without
-      // any backend. Replace with form-handler integration once backend deploys.
-      const subject = encodeURIComponent(`LAB 909 — Free consult request (${selectedType.slug})`);
+    const isInquiry =
+      selectedType.priceCents === 0 || INQUIRY_ONLY_SLUGS.has(selectedType.slug);
+    if (isInquiry) {
+      // Send a quote request via mailto so the coach gets the lead without any
+      // backend. Replace with form-handler integration once backend deploys.
+      const subject = encodeURIComponent(`LAB 909 — ${selectedType.name} request`);
       const body = encodeURIComponent(
         `Session: ${selectedType.name}\n` +
-          `When: ${new Date(selectedTs).toLocaleString()}\n` +
+          `Preferred start: ${new Date(selectedTs).toLocaleString()}\n` +
           `Notes: ${notes || "(none)"}\n` +
           `UTM source: ${utm?.source || "direct"}\n` +
           `(Waiver acknowledged on site.)`,
@@ -171,7 +174,7 @@ function SessionTypeGrid({ types, onSelect }: { types: SessionType[]; onSelect: 
           <div className="p-5">
             <div className="flex items-baseline justify-between gap-3 mb-2">
               <h3 className="font-archivo text-xl uppercase tracking-tight">{t.name}</h3>
-              <p className="font-display text-2xl text-lab-red">{money(t.priceCents, { hideZero: true })}</p>
+              <p className="font-display text-2xl text-lab-red">{money(t.priceCents, { zeroLabel: "Inquire" })}</p>
             </div>
             <p className="label-mono text-white/40 mb-3">{t.durationMin} MIN · CAP {t.capacity}</p>
             <p className="text-sm text-white/70 mb-4">{t.tagline}</p>
@@ -215,7 +218,7 @@ function DateAndSlotPicker({
     <div className="grid lg:grid-cols-[1fr_320px] gap-8">
       <div>
         <h2 className="font-archivo text-2xl uppercase mb-1">{type.name}</h2>
-        <p className="label-mono text-white/40 mb-6">{type.durationMin} MIN · {money(type.priceCents, { hideZero: true })}</p>
+        <p className="label-mono text-white/40 mb-6">{type.durationMin} MIN · {money(type.priceCents, { zeroLabel: "Inquire" })}</p>
 
         <div className="mb-6">
           <p className="label-mono text-white/50 mb-3 flex items-center gap-2">
@@ -277,7 +280,7 @@ function DateAndSlotPicker({
           <div className="flex justify-between"><dt className="text-white/50">Duration</dt><dd>{type.durationMin} min</dd></div>
           <div className="flex justify-between"><dt className="text-white/50">Date</dt><dd>{fmtDate(new Date(date).getTime())}</dd></div>
           <div className="flex justify-between"><dt className="text-white/50">Time</dt><dd>{selectedTs ? new Date(selectedTs).toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" }) : "—"}</dd></div>
-          <div className="flex justify-between border-t border-white/10 pt-3"><dt>Total</dt><dd className="font-archivo text-lab-red">{money(type.priceCents, { hideZero: true })}</dd></div>
+          <div className="flex justify-between border-t border-white/10 pt-3"><dt>Total</dt><dd className="font-archivo text-lab-red">{money(type.priceCents, { zeroLabel: "Inquire" })}</dd></div>
         </dl>
         <button
           disabled={!selectedTs}
@@ -306,7 +309,7 @@ function ReviewPay({
   onConfirm: () => void;
   error: string | null;
 }) {
-  const isFree = type.priceCents === 0;
+  const isInquiry = type.priceCents === 0;
   return (
     <div className="grid lg:grid-cols-[1fr_360px] gap-8">
       <div className="space-y-8">
@@ -347,14 +350,14 @@ function ReviewPay({
           </span>
         </label>
 
-        {isFree && (
+        {isInquiry && (
           <div className="border border-white/10 bg-white/5 rounded p-6">
-            <p className="label-mono text-lab-red mb-1">// FREE</p>
-            <p className="text-white/70 text-sm">No payment needed for the consultation. Hit “Lock it in” to email the coach — we’ll confirm within 24 hours.</p>
+            <p className="label-mono text-lab-red mb-1">// QUOTE REQUEST</p>
+            <p className="text-white/70 text-sm">This session is priced per group, location, and program length. Hit “Request quote” to email the coach — we’ll respond within 24 hours with a price and confirm the slot.</p>
           </div>
         )}
 
-        {!isFree && (
+        {!isInquiry && (
           <div className="border border-white/10 bg-white/5 rounded p-6">
             <p className="label-mono text-white/50 mb-1">PAYMENT</p>
             <p className="text-white/70 text-sm">Hitting “Lock it in” sends you to our secure Square checkout. Your slot is reserved when the payment clears.</p>
@@ -367,8 +370,8 @@ function ReviewPay({
       <aside className="border border-white/10 bg-white/5 rounded p-6 h-fit lg:sticky lg:top-24">
         <p className="label-mono text-lab-red mb-3">// TOTAL</p>
         <dl className="space-y-3 text-sm mb-6">
-          <div className="flex justify-between"><dt className="text-white/50">{type.name}</dt><dd>{money(type.priceCents, { hideZero: true })}</dd></div>
-          <div className="flex justify-between border-t border-white/10 pt-3 text-lg"><dt className="font-archivo uppercase">Total</dt><dd className="font-archivo text-lab-red">{money(type.priceCents, { hideZero: true })}</dd></div>
+          <div className="flex justify-between"><dt className="text-white/50">{type.name}</dt><dd>{money(type.priceCents, { zeroLabel: "Inquire" })}</dd></div>
+          <div className="flex justify-between border-t border-white/10 pt-3 text-lg"><dt className="font-archivo uppercase">Total</dt><dd className="font-archivo text-lab-red">{money(type.priceCents, { zeroLabel: "Inquire" })}</dd></div>
         </dl>
         <button
           onClick={onConfirm}
@@ -376,7 +379,7 @@ function ReviewPay({
           className="w-full bg-lab-red text-white font-archivo uppercase tracking-wider py-3 rounded thrust hover:bg-white hover:text-lab-red disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center gap-2"
           data-testid="button-confirm"
         >
-          Lock it in <ArrowRight className="w-4 h-4" />
+          {isInquiry ? "Request quote" : "Lock it in"} <ArrowRight className="w-4 h-4" />
         </button>
         <button onClick={onBack} className="w-full mt-3 label-mono text-white/50 hover:text-white py-2" data-testid="button-back">← Change time</button>
       </aside>

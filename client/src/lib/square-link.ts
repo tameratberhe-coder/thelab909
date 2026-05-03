@@ -35,12 +35,11 @@ export const SQUARE_PAYMENT_LINK = "https://square.link/u/REPLACE_WITH_YOUR_LINK
  * Slugs must match the `slug` field in lib/session-types-static.ts.
  */
 export const SQUARE_LINKS_BY_SLUG: Record<string, string> = {
-  // "free-consult": "https://square.link/u/...",
-  // "private-1on1": "https://square.link/u/...",
   // "sports-performance": "https://square.link/u/...",
-  // "family": "https://square.link/u/...",
-  // "small-group": "https://square.link/u/...",
-  // "group-fitness": "https://square.link/u/...",
+  // "fitness": "https://square.link/u/...",
+  // "speed-training": "https://square.link/u/...",
+  // "vertical-training": "https://square.link/u/...",
+  // team-training and off-site-training are inquiry-only — no Square link.
 };
 
 const PLACEHOLDER = "REPLACE_WITH_YOUR_LINK";

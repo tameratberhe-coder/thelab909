@@ -32,6 +32,11 @@ export const IMAGES: Record<string, string> = {
   "family": sceneGroup,
   "fitness": sceneGroup,
   "training": trainerCoaching,
+  // New 2026-05 menu keys — reuse existing scenes until bespoke art lands.
+  "speed": sceneSports,
+  "vertical": sceneSports,
+  "team": sceneGroup,
+  "offsite": scenePrivate,
 };
 
 export function imageFor(key: string): string {

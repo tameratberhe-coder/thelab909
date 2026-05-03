@@ -1,5 +1,10 @@
-export function money(cents: number, opts?: { hideZero?: boolean }) {
-  if (opts?.hideZero && cents === 0) return "Free";
+export function money(
+  cents: number,
+  opts?: { hideZero?: boolean; zeroLabel?: string },
+) {
+  if ((opts?.hideZero || opts?.zeroLabel) && cents === 0) {
+    return opts.zeroLabel ?? "Free";
+  }
   const dollars = cents / 100;
   return dollars.toLocaleString("en-US", { style: "currency", currency: "USD", minimumFractionDigits: dollars % 1 === 0 ? 0 : 2 });
 }
