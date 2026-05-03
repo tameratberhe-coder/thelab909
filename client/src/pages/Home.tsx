@@ -263,14 +263,63 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section break (D3) before the coach section. */}
+      {/* Section break (D3) before the faces gallery. */}
+      <ChevronDivider className="px-4 sm:px-8" />
+
+      {/* FACES — True Power Media photoshoot, real LAB athletes. */}
+      <section className="bg-black text-white py-24 sm:py-32 px-4 sm:px-8" data-testid="faces">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="flex items-end justify-between mb-12 gap-8 flex-wrap">
+            <div>
+              <p className="label-mono text-white/50 mb-6">/ Faces of the LAB</p>
+              <h2 className="font-display leading-[0.9]">
+                <span className="block text-[clamp(56px,12vw,180px)]">REAL</span>
+                <span className="block text-[clamp(56px,12vw,180px)] text-lab-red">PEOPLE.</span>
+              </h2>
+            </div>
+            <p className="label-mono text-white/40 max-w-xs">Photography by True Power Media. No models, no stock. Just the people who train here.</p>
+          </div>
+
+          {/* 6-portrait grid — vertical 9:16 to match phone-shoot source files. */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
+            {[
+              { src: "/photos/apparel-red.jpg", label: "Red Crew", caption: "LAB tee" },
+              { src: "/photos/coach-pose.jpg", label: "Spotlight", caption: "On the floor" },
+              { src: "/photos/athlete-stance.jpg", label: "Stance", caption: "Ready position" },
+              { src: "/photos/power.jpg", label: "Power", caption: "Strength" },
+              { src: "/photos/athlete-aggro.jpg", label: "Lock In", caption: "Game day" },
+              { src: "/photos/apparel-hood-1.jpg", label: "Hood Up", caption: "In the werk" },
+            ].map((p) => (
+              <div key={p.src} className="relative aspect-[9/16] overflow-hidden rounded-sm bg-zinc-900 border border-white/5 group">
+                <img
+                  src={p.src}
+                  alt={p.label}
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-transparent pointer-events-none" />
+                <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4">
+                  <p className="font-archivo text-sm sm:text-base leading-none mb-1">{p.label}</p>
+                  <p className="label-mono text-white/60 text-[10px]">{p.caption}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <ChevronDivider className="px-4 sm:px-8" />
 
       {/* COACH */}
       <section className="bg-black text-white py-24 sm:py-32 px-4 sm:px-8" data-testid="coach">
         <div className="max-w-[1400px] mx-auto grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div className="relative aspect-[3/4] overflow-hidden rounded-sm bg-zinc-900">
-            <AutoVideo src={REELS.alex.src} poster={REELS.alex.poster} testid="video-coach" />
+            <img
+              src="/photos/coach-portrait.jpg"
+              alt="Head Coach — The LAB 909"
+              loading="lazy"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
             <span className="absolute top-5 left-5 bg-lab-red text-white label-mono px-3 py-1 rounded-full">Head Coach</span>
           </div>
