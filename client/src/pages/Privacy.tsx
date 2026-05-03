@@ -28,7 +28,7 @@ export default function Privacy() {
               <li><strong>Health intake:</strong> injury history, training goals, emergency contact — only what you choose to share.</li>
               <li><strong>Payment:</strong> handled by Stripe. We never see or store full card numbers.</li>
               <li><strong>Device + analytics:</strong> IP, browser, pages viewed, UTM parameters, referrers.</li>
-              <li><strong>Photo / video:</strong> only if you opt in via our liability + media release.</li>
+              <li><strong>Photo / video / likeness:</strong> captured during sessions and used for marketing, social, and editorial purposes under the mandatory release in our participant agreement.</li>
             </ul>
           </Section>
 

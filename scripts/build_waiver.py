@@ -191,30 +191,75 @@ def main() -> None:
     )
 
     story += section(
-        "5. Photo and Video Release (Optional)",
-        "Initial here if you grant The LAB 909 permission to photograph and record video "
-        "during sessions and to use that footage on its website, social media, and "
-        "marketing materials, without compensation. You may revoke this consent in "
-        "writing at any time for future use.",
+        "5. Photo, Video, Audio, Likeness and Publicity Release (Mandatory)",
+        "By signing this Agreement, I irrevocably and unconditionally grant to The LAB 909 "
+        "and its owners, employees, coaches, contractors, successors, assigns, licensees, "
+        "sponsors, partners, and anyone authorized by The LAB 909 (collectively, \u201cReleased "
+        "Parties\u201d) the perpetual, worldwide, royalty-free, fully paid-up, sublicensable, "
+        "transferable, and irrevocable right and license to photograph, film, audio-record, "
+        "video-record, livestream, and otherwise capture and reproduce my (and, if a "
+        "minor, my child\u2019s) name, voice, likeness, image, photograph, video, performance, "
+        "statements, biographical information, signature, and any other identifying "
+        "attributes (collectively, \u201cMy Likeness\u201d) before, during, and after any session, "
+        "event, or visit to any LAB 909 facility or related premises. I further grant the "
+        "unrestricted right to edit, alter, modify, copy, exhibit, publish, distribute, "
+        "display, perform, broadcast, and create derivative works from My Likeness, in "
+        "whole or in part, alone or in combination with any other content, in any and all "
+        "media now known or hereafter invented (including without limitation print, "
+        "television, film, internet, social media, streaming, podcasts, mobile applications, "
+        "virtual reality, the metaverse, AI training data, advertising, signage, packaging, "
+        "and merchandise), in any and all markets and territories, throughout the universe, "
+        "in perpetuity, for any purpose whatsoever \u2014 commercial, promotional, editorial, "
+        "educational, or otherwise \u2014 without further notice, approval, compensation, "
+        "royalty, attribution, or accounting to me. "
+        "<br/><br/>"
+        "I acknowledge that I will <b>not</b> receive any payment, residual, royalty, profit "
+        "share, or other consideration of any kind for any current or future use of My "
+        "Likeness, and that the access to training, coaching, and the LAB 909 facility "
+        "itself is full and adequate consideration for this release. I waive any right to "
+        "inspect, review, or approve any photograph, recording, edit, caption, or finished "
+        "product before publication. "
+        "<br/><br/>"
+        "I irrevocably and forever release, waive, and discharge the Released Parties from "
+        "any and all claims, damages, demands, liabilities, losses, costs, fees (including "
+        "attorneys\u2019 fees), and causes of action of any kind, whether known or unknown, "
+        "existing now or arising in the future, that I, my heirs, my estate, my assigns, or "
+        "anyone acting on my behalf may have against the Released Parties arising out of "
+        "or relating to the capture, use, reuse, modification, or distribution of My "
+        "Likeness \u2014 including without limitation any claim for invasion of privacy, "
+        "intrusion, public disclosure of private facts, false light, defamation, libel, "
+        "slander, infliction of emotional distress, copyright infringement, right of "
+        "publicity (including under California Civil Code \u00a7 3344 and any common-law right "
+        "of publicity), trademark, unfair competition, misappropriation, blurring, "
+        "unauthorized commercial use, breach of contract, negligence, or any other legal "
+        "or equitable theory \u2014 even if such claim is caused in whole or in part by the "
+        "Released Parties\u2019 own negligence. To the maximum extent permitted by law, I "
+        "expressly waive the protections of California Civil Code \u00a7 1542, which provides: "
+        "\u201cA general release does not extend to claims that the creditor or releasing party "
+        "does not know or suspect to exist in his or her favor at the time of executing the "
+        "release and that, if known by him or her, would have materially affected his or "
+        "her settlement with the debtor or released party.\u201d "
+        "<br/><br/>"
+        "I further waive and disclaim any moral rights, droit moral, attribution rights, "
+        "integrity rights, or similar rights I may have in My Likeness or any work "
+        "incorporating it. To the extent any such right cannot be waived, I covenant not "
+        "to assert it. "
+        "<br/><br/>"
+        "I represent and warrant that I am the sole owner of all rights in My Likeness, "
+        "that I have the full legal authority to grant this release (and, if signing on "
+        "behalf of a minor, that I am the parent or legal guardian with full authority to "
+        "bind the minor and the minor\u2019s estate), and that no third party\u2019s consent is "
+        "required. I agree to indemnify, defend, and hold harmless the Released Parties "
+        "from any claim, demand, loss, or expense (including attorneys\u2019 fees) arising out "
+        "of any breach of this representation. "
+        "<br/><br/>"
+        "<b>This Section 5 is mandatory.</b> It is a material condition of my participation in "
+        "any LAB 909 program, training, or event. I cannot opt out of this Section 5 while "
+        "continuing to participate. This release is irrevocable and perpetual. It survives "
+        "the termination of any membership, booking, employment, or relationship with The "
+        "LAB 909 and is binding on me, my heirs, my estate, my executors, my "
+        "administrators, my successors, and my assigns.",
     )
-
-    initials_row = Table(
-        [
-            [Paragraph("<b>I CONSENT to photo/video use:</b>", styles["body"]), "", Paragraph("<b>I DECLINE photo/video use:</b>", styles["body"]), ""],
-        ],
-        colWidths=[2.0 * inch, 0.7 * inch, 1.8 * inch, 0.7 * inch],
-    )
-    initials_row.setStyle(
-        TableStyle(
-            [
-                ("LINEBELOW", (1, 0), (1, 0), 0.6, BLACK),
-                ("LINEBELOW", (3, 0), (3, 0), 0.6, BLACK),
-                ("VALIGN", (0, 0), (-1, -1), "BOTTOM"),
-                ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
-            ]
-        )
-    )
-    story += [Spacer(1, 4), initials_row]
 
     story += section(
         "6. Dispute Resolution — Arbitration",
