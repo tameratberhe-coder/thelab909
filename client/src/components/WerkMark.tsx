@@ -1,9 +1,9 @@
 /**
- * WerkMark — the hero wordmark "WERK." rebuilt as a single SVG.
+ * WerkMark - the hero wordmark "WERK." rebuilt as a single SVG.
  *
  * Why this exists: when "WERK." was set as live text in font-display
  * (Anton / Archivo Black), there was no way to swap the period for the LabA
- * chevron — the period belongs to the font glyph. A standalone Λ rendered
+ * chevron - the period belongs to the font glyph. A standalone Λ rendered
  * next to it read as "WERK^ ." (a broken-off K), not as the brand mark.
  *
  * Solution: render the whole wordmark as a single SVG so the chevron sits
@@ -11,7 +11,7 @@
  * intrinsic punctuation, not bolted-on decoration.
  *
  * Letterforms are heavy-condensed slab-style, designed to match the existing
- * Archivo Black / Anton hero. Geometry only — no font dependency, scales to
+ * Archivo Black / Anton hero. Geometry only, no font dependency, scales to
  * any size, embeds the LAB 909 chevron as the final mark.
  *
  * Letter widths chosen to match real Archivo Black metrics (within 2%).
@@ -106,7 +106,7 @@ const K_PATH = `
 // period at the end of the word. Apex sits at cap-line, legs land on
 // baseline (y=200). Sits at x=1080..1180 (width 100).
 //
-// The chevron is INTRINSIC to the wordmark here — it punctuates "WERK"
+// The chevron is INTRINSIC to the wordmark here. It punctuates "WERK"
 // the way a period would, but at the same stroke weight as the letters,
 // so the whole thing reads as one mark.
 const CHEVRON_PATH = `

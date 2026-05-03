@@ -1,7 +1,7 @@
 import { Layout } from "@/components/Layout";
 
 /**
- * Terms of Service — fitness coaching + ecommerce template.
+ * Terms of Service. Fitness coaching + ecommerce template.
  * Includes risk-of-injury, refunds, cancellations, and arbitration clauses.
  * Reviewed by counsel before launch. (Board memo #001, P5.)
  */
@@ -71,7 +71,7 @@ export default function Terms() {
             belong to The LAB 909. Don’t copy or repost without written permission.
           </Section>
 
-          <Section h="10. Disputes — arbitration + class waiver">
+          <Section h="10. Disputes: arbitration and class waiver">
             Disputes will be resolved by binding arbitration in San Bernardino County,
             California, under JAMS rules. You and we waive the right to a jury and to
             participate in any class action. You may opt out of arbitration by emailing us

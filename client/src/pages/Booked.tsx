@@ -7,7 +7,7 @@ import { fmtDateTime, money } from "@/lib/format";
 import { Check, ArrowRight } from "lucide-react";
 
 /**
- * /booked — Square Checkout Link returns here after a successful payment.
+ * /booked: Square Checkout Link returns here after a successful payment.
  * (Design move D4.)
  *
  * The booking flow encodes session metadata into the redirect URL as
@@ -17,7 +17,7 @@ import { Check, ArrowRight } from "lucide-react";
  * `client_reference_id` and `cri` as well.
  *
  * Until the backend deploys to validate the payment server-side, this page
- * trusts the URL params for display only — the real source of truth is the
+ * trusts the URL params for display only. The real source of truth is the
  * Square dashboard. We also stash the locked slot in localStorage so the
  * athlete can return to the page later from their phone history.
  */

@@ -14,7 +14,7 @@
  *
  * Past slots (earlier than now) are filtered out so the picker never offers
  * times that have already passed. There is no “already booked” suppression
- * in the static path — that requires a backend.
+ * in the static path. That requires a backend.
  */
 
 export type Slot = { ts: number; label: string };

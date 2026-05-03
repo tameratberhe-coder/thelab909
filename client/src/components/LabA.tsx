@@ -1,5 +1,5 @@
 /**
- * LabA — the chevron-style "A" from the LAB 909 wordmark.
+ * LabA - the chevron-style "A" from the LAB 909 wordmark.
  *
  * No crossbar. Pure inverted-V (Λ) with the same proportions as the
  * letterform in the logo. Uses currentColor so it inherits text color
@@ -23,7 +23,7 @@ export function LabA({ className = "" }: { className?: string }) {
         verticalAlign: "-0.04em",
       }}
     >
-      {/* Chevron / inverted V — solid filled triangle outline, NO crossbar. */}
+      {/* Chevron / inverted V - solid filled triangle outline, NO crossbar. */}
       <path
         d="M 35 0 L 70 100 L 52 100 L 35 51 L 18 100 L 0 100 Z"
         fill="currentColor"

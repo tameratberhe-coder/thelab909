@@ -39,7 +39,7 @@ export const SQUARE_LINKS_BY_SLUG: Record<string, string> = {
   // "fitness": "https://square.link/u/...",
   // "speed-training": "https://square.link/u/...",
   // "vertical-training": "https://square.link/u/...",
-  // team-training and off-site-training are inquiry-only — no Square link.
+  // team-training and off-site-training are inquiry-only. No Square link.
 };
 
 const PLACEHOLDER = "REPLACE_WITH_YOUR_LINK";

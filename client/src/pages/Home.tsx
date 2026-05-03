@@ -47,7 +47,7 @@ export default function Home() {
           </p>
 
           {/* One primary CTA per section (D2): hero owns "Book a Consultation."
-             "See the Work" demoted to a text link — it's a navigation aid, not
+             "See the Work" demoted to a text link. It's a navigation aid, not
              a competing decision. */}
           <div className="flex flex-wrap items-center gap-6 mt-8" data-testid="hero-ctas">
             <Link
@@ -67,7 +67,7 @@ export default function Home() {
             </a>
           </div>
 
-          {/* Credentials strip — proof above the fold (P3). Edit values in lib/credentials.ts. */}
+          {/* Credentials strip. Proof above the fold (P3). Edit values in lib/credentials.ts. */}
           <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl" data-testid="hero-credentials">
             {[
               { b: "Sport", s: "Strength · Speed · Conditioning" },
@@ -94,7 +94,7 @@ export default function Home() {
             <span className="block text-[clamp(72px,14vw,220px)]">DIAMONDS.</span>
           </h2>
           <div className="border-t border-white/10 mt-16 pt-10 grid md:grid-cols-2 gap-12">
-            <h3 className="font-archivo text-2xl sm:text-3xl leading-tight">We&apos;re not a gym. We&apos;re a training facility — built for people who want to know what they&apos;re capable of.</h3>
+            <h3 className="font-archivo text-2xl sm:text-3xl leading-tight">We&apos;re not a gym. We&apos;re a training facility, built for people who want to know what they&apos;re capable of.</h3>
             <div className="text-white/80 space-y-5 text-lg">
               <p>No mirrors to perform in. No machines to hide behind. Just turf, iron, and a coach watching every rep. The work is the work, and we don&apos;t let you skip it.</p>
               <p>You bring the effort. We bring the standard. That&apos;s the deal.</p>
@@ -108,7 +108,7 @@ export default function Home() {
 
       <Ticker />
 
-      {/* TRAIN — video cards */}
+      {/* TRAIN: video cards */}
       <section className="bg-black text-white py-24 sm:py-32 px-4 sm:px-8" data-testid="train">
         <div className="max-w-[1400px] mx-auto">
           <div className="grid md:grid-cols-2 gap-8 items-end mb-12">
@@ -167,17 +167,17 @@ export default function Home() {
             <span className="block text-[clamp(56px,12vw,180px)]">PICK</span>
             <span className="block text-[clamp(56px,12vw,180px)]">YOUR LANE.</span>
           </h2>
-          <p className="text-lg text-white/70 max-w-xl mb-12">Six ways to train. Every program built around your goal — not a template. Start with a free consultation, leave with a plan.</p>
+          <p className="text-lg text-white/70 max-w-xl mb-12">Six ways to train. Every program built around your goal, not a template. Start with a free consultation, leave with a plan.</p>
 
           {/* Chevron divider (D3): one appearance per long section, never on CTAs. */}
           <div className="border-t border-white/10">
             {[
-              { n: "01", h: "Sports Performance", c: "Athletes", d: "Position-specific training for athletes — football, basketball, soccer, track, baseball. Speed, agility, explosive power, recovery — built around your season." },
+              { n: "01", h: "Sports Performance", c: "Athletes", d: "Position-specific training for athletes: football, basketball, soccer, track, baseball. Speed, agility, explosive power, recovery, built around your season." },
               { n: "02", h: "1-on-1 Private", c: "Solo", d: "Private coaching designed around your body, your goals, your schedule. The most direct path to a stronger version of you." },
               { n: "03", h: "Family Training", c: "Crew", d: "The whole family in the gym at once. Different intensities, same standard. We bring out the best in each athlete." },
               { n: "04", h: "Small Group", c: "Group of 4", d: "Train with a small crew of athletes pushing the same direction. Same drills, more energy, same accountability." },
               { n: "05", h: "Group Fitness", c: "Class", d: "Coach-led conditioning class. Drop in, push hard, leave wrecked. Built for the community member who hates gyms." },
-              { n: "06", h: "Free Consultation", c: "Start here", d: "Tell us your goal — we map a plan. No card needed, no commitment. Just a real conversation about what you want from your training." },
+              { n: "06", h: "Free Consultation", c: "Start here", d: "Tell us your goal. We map a plan. No card needed, no commitment. Just a real conversation about what you want from your training." },
             ].map((p) => (
               <Link
                 key={p.n}
@@ -209,11 +209,11 @@ export default function Home() {
           <p className="font-archivo uppercase text-3xl sm:text-5xl lg:text-6xl leading-tight">
             &ldquo;We coach people who refuse to settle for the bare minimum.&rdquo;
           </p>
-          <p className="label-mono mt-6">— The LAB 909</p>
+          <p className="label-mono mt-6">// The LAB 909</p>
         </div>
       </section>
 
-      {/* FILM — featured master + reel grid */}
+      {/* FILM: featured master + reel grid */}
       <section id="film" className="bg-black text-white py-24 sm:py-32 px-4 sm:px-8" data-testid="film">
         <div className="max-w-[1400px] mx-auto">
           <div className="flex items-end justify-between mb-12 gap-8 flex-wrap">
@@ -272,7 +272,7 @@ export default function Home() {
       {/* Section break (D3) before the faces gallery. */}
       <ChevronDivider className="px-4 sm:px-8" />
 
-      {/* FACES — True Power Media photoshoot, real LAB athletes/coaches. */}
+      {/* FACES: True Power Media photoshoot, real LAB athletes/coaches. */}
       <section className="bg-black text-white py-24 sm:py-32 px-4 sm:px-8" data-testid="faces">
         <div className="max-w-[1400px] mx-auto">
           <div className="flex items-end justify-between mb-12 gap-8 flex-wrap">
@@ -286,7 +286,7 @@ export default function Home() {
             <p className="label-mono text-white/40 max-w-xs">Photography by True Power Media. No models, no stock. Just the people who train here.</p>
           </div>
 
-          {/* 4-up dramatic grid — alternating subjects, no labels.
+          {/* 4-up dramatic grid. Alternating subjects, no labels.
              The photos do the talking. Tall 3:4 portrait crop forces
              the eye onto the subject. Hover scale + slow gradient pulse
              keeps it cinematic. */}
@@ -324,7 +324,7 @@ export default function Home() {
           <div className="relative aspect-[3/4] overflow-hidden rounded-sm bg-zinc-900">
             <img
               src="/photos/coach-portrait.jpg"
-              alt="Head Coach — The LAB 909"
+              alt="Head Coach, The LAB 909"
               loading="lazy"
               className="absolute inset-0 w-full h-full object-cover"
             />
@@ -334,7 +334,7 @@ export default function Home() {
           <div>
             <p className="label-mono text-white/50 mb-4">/ Coach</p>
             <h2 className="font-archivo text-4xl sm:text-6xl leading-[0.95] mb-6">COACHED BY SOMEONE WHO&apos;S <span className="text-lab-red">DONE THE WERK.</span></h2>
-            <p className="text-white/80 text-lg mb-4">The LAB 909 was founded — and is still run — by a coach who came up the same way he coaches now: with intention, accountability, and zero patience for shortcuts.</p>
+            <p className="text-white/80 text-lg mb-4">The LAB 909 was founded, and is still run, by a coach who came up the same way he coaches now: with intention, accountability, and zero patience for shortcuts.</p>
             <p className="text-white/80 text-lg mb-8">Every session, every set, every cue is delivered by the person whose name is on the door.</p>
             {/* Demoted to text link (D2): the final red block owns the primary CTA. */}
             <Link href="/book" className="inline-flex items-center gap-2 label-mono text-lab-red border-b border-lab-red/60 pb-1 hover:text-white hover:border-white">
@@ -344,7 +344,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA — RED */}
+      {/* CTA: red */}
       <section className="bg-lab-red text-white py-24 sm:py-32 px-4 sm:px-8 relative overflow-hidden" data-testid="cta-block">
         <div aria-hidden className="absolute right-0 bottom-0 pointer-events-none select-none opacity-15">
           <Logo variant="black" className="h-[clamp(220px,40vw,560px)] w-auto" />

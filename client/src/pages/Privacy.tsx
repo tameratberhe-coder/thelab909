@@ -1,7 +1,7 @@
 import { Layout } from "@/components/Layout";
 
 /**
- * Privacy Policy — fitness coaching + ecommerce template.
+ * Privacy Policy. Fitness coaching + ecommerce template.
  * Edit business specifics inline. Reviewed by counsel before launch.
  * (Board memo #001, P5.)
  */
@@ -25,7 +25,7 @@ export default function Privacy() {
             <ul className="list-disc pl-5 space-y-2">
               <li><strong>Account info:</strong> name, email, phone, password (hashed).</li>
               <li><strong>Booking info:</strong> session type, date/time, notes you submit, attendance.</li>
-              <li><strong>Health intake:</strong> injury history, training goals, emergency contact — only what you choose to share.</li>
+              <li><strong>Health intake:</strong> injury history, training goals, emergency contact. Only what you choose to share.</li>
               <li><strong>Payment:</strong> handled by Square. We never see or store full card numbers.</li>
               <li><strong>Device + analytics:</strong> IP, browser, pages viewed, UTM parameters, referrers.</li>
               <li><strong>Photo / video / likeness:</strong> captured during sessions and used for marketing, social, and editorial purposes under the mandatory release in our participant agreement.</li>
@@ -60,7 +60,7 @@ export default function Privacy() {
 
           <Section h="8. Security">
             Passwords are hashed. Payments are tokenized through Square. No system is 100%
-            secure — if we ever have a breach affecting your data, we will notify you.
+            secure. If we ever have a breach affecting your data, we will notify you.
           </Section>
 
           <Section h="9. Changes">

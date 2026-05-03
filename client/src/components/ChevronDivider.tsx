@@ -1,7 +1,7 @@
 import { LabA } from "@/components/LabA";
 
 /**
- * Chevron divider — promotes the LabA mark to a system artifact.
+ * Chevron divider - promotes the LabA mark to a system artifact.
  * Used once between long sections (Manifesto → Train, Train → Programs, etc.)
  * to give the eye a rest and reinforce the brand glyph without sprinkling it
  * on every CTA. (Design move D3.)

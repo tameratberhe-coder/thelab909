@@ -16,7 +16,7 @@
  */
 import type { SessionType } from "@shared/schema";
 
-/** Slugs that should NEVER hit Square — they always go to mailto inquiry. */
+/** Slugs that should NEVER hit Square. They always go to mailto inquiry. */
 export const INQUIRY_ONLY_SLUGS = new Set<string>([
   "team-training",
   "off-site-training",
@@ -80,7 +80,7 @@ export const STATIC_SESSION_TYPES: SessionType[] = [
     durationMin: 60,
     capacity: 1,
     priceCents: 12500,
-    tagline: "Add inches to your vertical. Plyometrics, force production, jump mechanics — measured every session.",
+    tagline: "Add inches to your vertical. Plyometrics, force production, jump mechanics. Measured every session.",
     imageKey: "vertical",
   },
 ];

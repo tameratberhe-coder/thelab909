@@ -24,7 +24,7 @@ export default function Book() {
   const [waiverAccepted, setWaiverAccepted] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  // Static catalog + static slot generator — no backend needed (P4).
+  // Static catalog + static slot generator. No backend needed (P4).
   const sessionTypes = STATIC_SESSION_TYPES;
   const selectedType = sessionTypes.find((t) => t.id === selectedTypeId) ?? null;
 
@@ -41,7 +41,7 @@ export default function Book() {
     next();
   }
 
-  // "Lock it in" — redirect to Square Online Checkout with booking metadata.
+  // "Lock it in": redirect to Square Online Checkout with booking metadata.
   // Inquiry-only session types (team training, off-site, anything priced at $0)
   // skip Square and send a structured quote request via mailto.
   function onConfirm() {
@@ -57,7 +57,7 @@ export default function Book() {
     if (isInquiry) {
       // Send a quote request via mailto so the coach gets the lead without any
       // backend. Replace with form-handler integration once backend deploys.
-      const subject = encodeURIComponent(`LAB 909 — ${selectedType.name} request`);
+      const subject = encodeURIComponent(`LAB 909: ${selectedType.name} request`);
       const body = encodeURIComponent(
         `Session: ${selectedType.name}\n` +
           `Preferred start: ${new Date(selectedTs).toLocaleString()}\n` +
@@ -279,7 +279,7 @@ function DateAndSlotPicker({
         <dl className="space-y-3 text-sm mb-6">
           <div className="flex justify-between"><dt className="text-white/50">Duration</dt><dd>{type.durationMin} min</dd></div>
           <div className="flex justify-between"><dt className="text-white/50">Date</dt><dd>{fmtDate(new Date(date).getTime())}</dd></div>
-          <div className="flex justify-between"><dt className="text-white/50">Time</dt><dd>{selectedTs ? new Date(selectedTs).toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" }) : "—"}</dd></div>
+          <div className="flex justify-between"><dt className="text-white/50">Time</dt><dd>{selectedTs ? new Date(selectedTs).toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" }) : "-"}</dd></div>
           <div className="flex justify-between border-t border-white/10 pt-3"><dt>Total</dt><dd className="font-archivo text-lab-red">{money(type.priceCents, { zeroLabel: "Inquire" })}</dd></div>
         </dl>
         <button
@@ -331,7 +331,7 @@ function ReviewPay({
           />
         </div>
 
-        {/* Liability waiver checkbox — P2. Required before "Lock it in". */}
+        {/* Liability waiver checkbox. P2. Required before "Lock it in". */}
         <label
           className={`flex gap-3 items-start border rounded p-5 cursor-pointer transition-colors ${
             waiverAccepted ? "border-lab-red/60 bg-lab-red/5" : "border-white/15 bg-white/5"
@@ -353,7 +353,7 @@ function ReviewPay({
         {isInquiry && (
           <div className="border border-white/10 bg-white/5 rounded p-6">
             <p className="label-mono text-lab-red mb-1">// QUOTE REQUEST</p>
-            <p className="text-white/70 text-sm">This session is priced per group, location, and program length. Hit “Request quote” to email the coach — we’ll respond within 24 hours with a price and confirm the slot.</p>
+            <p className="text-white/70 text-sm">This session is priced per group, location, and program length. Hit “Request quote” to email the coach. We’ll respond within 24 hours with a price and confirm the slot.</p>
           </div>
         )}
 

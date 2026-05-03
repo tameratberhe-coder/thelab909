@@ -128,7 +128,7 @@ def main() -> None:
         rightMargin=0.7 * inch,
         topMargin=0.7 * inch,
         bottomMargin=0.6 * inch,
-        title="LAB 909 — Liability Waiver and Release",
+        title="LAB 909 - Liability Waiver and Release",
         author="Perplexity Computer",
     )
 
@@ -165,7 +165,7 @@ def main() -> None:
         "2. Acknowledgment of Risk",
         "I understand that strength training, sprint and agility work, plyometrics, "
         "Olympic lifting, conditioning, and sports performance training involve real risk "
-        "of injury — including but not limited to muscle strains, sprains, fractures, "
+        "of injury, including but not limited to muscle strains, sprains, fractures, "
         "concussions, dental injuries, heart events, heat illness, and in rare cases, "
         "permanent disability or death. I voluntarily assume these risks.",
     )
@@ -262,7 +262,7 @@ def main() -> None:
     )
 
     story += section(
-        "6. Dispute Resolution — Arbitration",
+        "6. Dispute Resolution: Arbitration",
         "Any dispute arising out of this waiver or my participation will be resolved by "
         "binding arbitration in San Bernardino County, California, under JAMS rules. I "
         "waive the right to a jury trial and to participate in any class action.",

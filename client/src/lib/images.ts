@@ -24,7 +24,7 @@ export const IMAGES: Record<string, string> = {
   "supp-pre": suppPre,
   "supp-recovery": suppRecovery,
   "supp-bcaa": suppBcaa,
-  // Session-type scenes — original art (real photos live in the homepage gallery only).
+  // Session-type scenes. Original art (real photos live in the homepage gallery only).
   "consult": trainerCoaching,
   "private": scenePrivate,
   "sports": sceneSports,
@@ -32,7 +32,7 @@ export const IMAGES: Record<string, string> = {
   "family": sceneGroup,
   "fitness": sceneGroup,
   "training": trainerCoaching,
-  // New 2026-05 menu keys — reuse existing scenes until bespoke art lands.
+  // New 2026-05 menu keys. Reuse existing scenes until bespoke art lands.
   "speed": sceneSports,
   "vertical": sceneSports,
   "team": sceneGroup,

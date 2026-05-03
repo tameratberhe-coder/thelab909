@@ -60,7 +60,7 @@ export function MockCardForm({ value, onChange, disabled }: { value: CardForm; o
           />
         </div>
       </div>
-      <p className="text-xs text-white/40">Demo mode — no real card is charged. Enter any digits to proceed.</p>
+      <p className="text-xs text-white/40">Demo mode. No real card is charged. Enter any digits to proceed.</p>
     </div>
   );
 }

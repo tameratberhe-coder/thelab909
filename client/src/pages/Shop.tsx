@@ -24,7 +24,7 @@ export default function Shop() {
       <div className="bg-black text-white min-h-screen">
         {/* Hero */}
         <div className="pt-28 pb-10 max-w-[1400px] mx-auto px-4 sm:px-8">
-          <p className="label-mono text-lab-red mb-3">// SHOP — {category.toUpperCase()}</p>
+          <p className="label-mono text-lab-red mb-3">// SHOP / {category.toUpperCase()}</p>
           <h1 className="font-display text-6xl sm:text-8xl uppercase leading-[0.85] tracking-tight mb-3">
             {isApparel ? <>The Drop.<br />Lab Issue.</> : <>Built<br />For Werk.</>}
           </h1>

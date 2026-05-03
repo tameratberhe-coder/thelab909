@@ -114,7 +114,7 @@ export default function Admin() {
                         {data.bookings.map((b) => (
                           <tr key={b.id} className="border-t border-white/10" data-testid={`row-booking-${b.id}`}>
                             <td className="p-3 font-mono text-white/40">#{b.id}</td>
-                            <td className="p-3 font-archivo">{b.sessionType?.name ?? "—"}</td>
+                            <td className="p-3 font-archivo">{b.sessionType?.name ?? "-"}</td>
                             <td className="p-3 text-white/70">{fmtDateTime(b.startsAt)}</td>
                             <td className="p-3"><span className={`label-mono text-xs ${b.status === "confirmed" ? "text-lab-red" : "text-white/40"}`}>{b.status.toUpperCase()}</span></td>
                             <td className="p-3 font-archivo text-right">{money(b.amountCents, { hideZero: true })}</td>

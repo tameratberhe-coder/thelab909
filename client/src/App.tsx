@@ -29,7 +29,7 @@ function AppRouter() {
   return (
     <Switch>
       {/*
-       * 2026-05 — site is in pre-launch "coming soon" mode. The waitlist page
+       * 2026-05: site is in pre-launch "coming soon" mode. The waitlist page
        * is mounted at "/" so any visitor to thelab909.com sees only the
        * email capture. The full site stays accessible via direct routes
        * (/site for the marketing home, plus /book, /shop, /membership, etc.)

@@ -4,7 +4,7 @@ import { LabA } from "@/components/LabA";
 import { ArrowRight, Check } from "lucide-react";
 
 /**
- * /soon — coming-soon waitlist landing page. Currently mounted at "/" so it
+ * /soon - coming-soon waitlist landing page. Currently mounted at "/" so it
  * IS the public homepage; the rest of the site lives behind direct routes
  * (/site, /book, /shop/..., etc.) so the team can still preview while the
  * waitlist is live.
@@ -52,7 +52,7 @@ export default function Soon() {
 
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden flex flex-col">
-      {/* Background — heavy red radial + grain */}
+      {/* Background: heavy red radial + grain */}
       <div className="absolute inset-0 pointer-events-none">
         <div
           className="absolute inset-0"
@@ -92,7 +92,7 @@ export default function Soon() {
             </p>
             <p className="text-white/55 text-sm sm:text-base leading-relaxed mb-8 max-w-md">
               Sports performance, speed, vertical, fitness. Coached by people who actually train.
-              Drop your name — first heads through the door get founding-rate access.
+              Drop your name. First heads through the door get founding-rate access.
             </p>
             <div className="hidden md:flex items-center gap-3 label-mono text-white/40 text-xs">
               <span className="w-8 h-px bg-white/30" />
@@ -120,7 +120,7 @@ export default function Soon() {
                   >
                     {/* Netlify form name mirror */}
                     <input type="hidden" name="form-name" value="waitlist" />
-                    {/* Honeypot — bots fill this, humans don't see it */}
+                    {/* Honeypot: bots fill this, humans don't see it */}
                     <p className="hidden">
                       <label>
                         Don't fill this out:{" "}
@@ -200,7 +200,7 @@ export default function Soon() {
                   </h2>
                   <p className="text-white/70 text-sm leading-relaxed mb-6">
                     We got your spot. We'll hit you at <span className="text-white">{email}</span> the second doors open.
-                    In the meantime — follow{" "}
+                    In the meantime, follow{" "}
                     <a
                       href="https://www.instagram.com/thelab909/"
                       target="_blank"
