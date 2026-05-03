@@ -4,6 +4,7 @@ import { Ticker } from "@/components/Ticker";
 import { AutoVideo } from "@/components/AutoVideo";
 import { Logo } from "@/components/Logo";
 import { Layout } from "@/components/Layout";
+import { LabA } from "@/components/LabA";
 import { REELS } from "@/lib/videos";
 
 export default function Home() {
@@ -34,7 +35,9 @@ export default function Home() {
           <h1 className="font-display text-white" data-testid="hero-title">
             <span className="block text-[clamp(80px,16vw,260px)]">ALL WE</span>
             <span className="block text-[clamp(80px,16vw,260px)] pl-[8%]">KNOW IS</span>
-            <span className="block text-[clamp(80px,16vw,260px)] text-lab-red">WERK.</span>
+            <span className="block text-[clamp(80px,16vw,260px)] text-lab-red">
+              WERK<LabA className="-ml-[0.06em]" />.
+            </span>
           </h1>
 
           <p className="max-w-xl mt-8 text-lg sm:text-xl text-white/85" data-testid="hero-sub">
@@ -59,16 +62,17 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl">
+          {/* Credentials strip — proof above the fold (P3). Edit values in lib/credentials.ts. */}
+          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl" data-testid="hero-credentials">
             {[
-              { b: "2019", s: "Founded" },
-              { b: "11", s: "Programs" },
-              { b: "1-on-1", s: "Coaching" },
-              { b: "909", s: "Inland Empire" },
+              { b: "Sport", s: "Strength · Speed · Conditioning" },
+              { b: "6+ yrs", s: "Coaching since 2019" },
+              { b: "D-1 prep", s: "Athletes placed in college programs" },
+              { b: "Cert.", s: "NASM-CPT · USAW · CPR/AED" },
             ].map((s) => (
-              <div key={s.s} className="border-l-2 border-lab-red pl-4">
-                <div className="font-archivo text-2xl sm:text-3xl">{s.b}</div>
-                <div className="label-mono text-white/60 mt-1">{s.s}</div>
+              <div key={s.b} className="border-l-2 border-lab-red pl-4">
+                <div className="font-archivo text-xl sm:text-2xl leading-none">{s.b}</div>
+                <div className="label-mono text-white/60 mt-2 text-[11px] leading-snug">{s.s}</div>
               </div>
             ))}
           </div>
@@ -284,9 +288,6 @@ export default function Home() {
           <div className="mt-8 flex flex-wrap gap-4">
             <Link href="/book" className="inline-flex items-center gap-2 bg-black text-white font-bold uppercase tracking-wider text-sm px-6 py-4 rounded-full thrust hover:bg-white hover:text-black" data-testid="cta-book-final">
               Book a Consultation <ArrowRight className="w-4 h-4" />
-            </Link>
-            <Link href="/membership" className="inline-flex items-center gap-2 border border-white text-white font-bold uppercase tracking-wider text-sm px-6 py-4 rounded-full thrust hover:bg-white hover:text-lab-red" data-testid="cta-membership">
-              Become a Member
             </Link>
           </div>
         </div>

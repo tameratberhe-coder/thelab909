@@ -3,6 +3,7 @@ import { Switch, Route, Router } from "wouter";
 import { useHashLocation } from "wouter/use-hash-location";
 import { queryClient, apiRequest, getAuthToken } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
+import { captureUtmFromUrl } from "@/lib/utm";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { AuthProvider } from "@/lib/auth";
@@ -19,6 +20,8 @@ import Cart from "@/pages/Cart";
 import Checkout from "@/pages/Checkout";
 import Account from "@/pages/Account";
 import Admin from "@/pages/Admin";
+import Privacy from "@/pages/Privacy";
+import Terms from "@/pages/Terms";
 
 function AppRouter() {
   return (
@@ -34,12 +37,18 @@ function AppRouter() {
       <Route path="/checkout" component={Checkout} />
       <Route path="/account" component={Account} />
       <Route path="/admin" component={Admin} />
+      <Route path="/privacy" component={Privacy} />
+      <Route path="/terms" component={Terms} />
       <Route component={NotFound} />
     </Switch>
   );
 }
 
 function App() {
+  // Capture first-touch UTM tags from IG/social bio links (P7).
+  useEffect(() => {
+    captureUtmFromUrl();
+  }, []);
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
