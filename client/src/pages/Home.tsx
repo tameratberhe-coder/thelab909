@@ -233,12 +233,18 @@ export default function Home() {
               <AutoVideo src={REELS.master.src} poster={REELS.master.poster} testid="video-film-master" />
             </div>
             <div>
-              <p className="label-mono text-white/50">Featured · Master Reel</p>
+              <p className="label-mono text-lab-red">// THE FILM</p>
               <h3 className="font-archivo text-3xl sm:text-5xl leading-none mt-2 mb-6">PRESSURE.MOV</h3>
-              <p className="text-white/70 mb-6">A short look inside the facility. Athletes, coaches, the floor — captured raw.</p>
-              <a href="https://www.instagram.com/thelab909/" target="_blank" rel="noopener" className="inline-flex items-center gap-2 border border-white/30 text-white label-mono px-5 py-3 rounded-full hover:bg-white hover:text-black thrust">
-                More on Instagram <ArrowRight className="w-3.5 h-3.5" />
-              </a>
+              <p className="text-white/80 text-lg mb-2 leading-snug">This is what werk looks like.</p>
+              <p className="text-white/65 mb-6 leading-relaxed">Inland Empire's training ground for the athletes nobody's watching yet. Faster. Stronger. Higher off the ground. Press play, then come build.</p>
+              <div className="flex flex-wrap gap-3">
+                <Link href="/book" className="inline-flex items-center gap-2 bg-lab-red text-white label-mono px-5 py-3 rounded-full hover:bg-white hover:text-lab-red thrust">
+                  Book a session <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+                <a href="https://www.instagram.com/thelab909/" target="_blank" rel="noopener" className="inline-flex items-center gap-2 border border-white/30 text-white label-mono px-5 py-3 rounded-full hover:bg-white hover:text-black thrust">
+                  More on IG <ArrowRight className="w-3.5 h-3.5" />
+                </a>
+              </div>
             </div>
           </div>
 
