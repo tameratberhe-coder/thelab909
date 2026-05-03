@@ -4,6 +4,13 @@
 
 [build.environment]
   NODE_VERSION = "20"
+  # Pin to a current Netlify build image (Focal is deprecated)
+  NETLIFY_BUILD_DEBUG = "false"
+
+# Use the latest supported build image
+[build.processing]
+  skip_processing = false
+
 
 # SPA fallback — all client-side routes serve index.html
 [[redirects]]
