@@ -280,54 +280,33 @@ export default function Home() {
             <p className="label-mono text-white/40 max-w-xs">Photography by True Power Media. No models, no stock. Just the people who train here.</p>
           </div>
 
-          {/* Hero band — hex tunnel landscape, sets the stage. */}
-          <div className="relative aspect-[16/7] overflow-hidden rounded-sm bg-zinc-900 border border-white/5 mb-3 sm:mb-4 group">
-            <img
-              src="/photos/hero-tunnel.jpg"
-              alt="Athlete in the LAB hex tunnel"
-              loading="lazy"
-              className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-            <div className="absolute bottom-0 left-0 p-6 sm:p-8">
-              <p className="font-archivo text-2xl sm:text-4xl leading-none mb-2">THE TUNNEL</p>
-              <p className="label-mono text-white/70">Where the werk lives.</p>
-            </div>
-          </div>
-
-          {/* 12-portrait grid — vertical 9:16 to match phone-shoot source files. */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
+          {/* 4-up dramatic grid — alternating subjects, no labels.
+             The photos do the talking. Tall 3:4 portrait crop forces
+             the eye onto the subject. Hover scale + slow gradient pulse
+             keeps it cinematic. */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3">
             {[
-              { src: "/photos/coach-portrait.jpg", label: "Head Coach", caption: "On the floor since '19" },
-              { src: "/photos/apparel-red.jpg", label: "Red Crew", caption: "LAB tee" },
-              { src: "/photos/coach-pose.jpg", label: "Spotlight", caption: "Lock in" },
-              { src: "/photos/power.jpg", label: "Power", caption: "LAB athlete" },
-              { src: "/photos/athlete-stance.jpg", label: "Stance", caption: "Ready position" },
-              { src: "/photos/athlete-aggro.jpg", label: "Game Day", caption: "Mode on" },
-              { src: "/photos/apparel-hood-1.jpg", label: "Hood Up", caption: "In the werk" },
-              { src: "/photos/apparel-orange.jpg", label: "Orange Crew", caption: "Crew uniform" },
-              { src: "/photos/community-pair.jpg", label: "The Crew", caption: "Trains together" },
-              { src: "/photos/moody.jpg", label: "Down To Werk", caption: "After the warmup" },
-              { src: "/photos/hero-duo.jpg", label: "Two-Up", caption: "Same standard" },
-              { src: "/photos/hero-tunnel-2.jpg", label: "Hex Stage", caption: "Performance lane" },
-            ].map((p) => (
-              <div key={p.src} className="relative aspect-[9/16] overflow-hidden rounded-sm bg-zinc-900 border border-white/5 group">
+              "/photos/coach-portrait.jpg",   // male coach, head-on
+              "/photos/apparel-red.jpg",      // woman in red LAB top
+              "/photos/hero-tunnel.jpg",      // woman in the hex tunnel
+              "/photos/apparel-hood-1.jpg",   // male athlete, white LAB tank
+            ].map((src) => (
+              <div key={src} className="relative aspect-[3/4] overflow-hidden rounded-sm bg-black border border-white/5 group">
                 <img
-                  src={p.src}
-                  alt={p.label}
+                  src={src}
+                  alt=""
                   loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="absolute inset-0 w-full h-full object-cover scale-[1.02] group-hover:scale-[1.10] transition-transform duration-[900ms] ease-[cubic-bezier(.2,.8,.2,1)]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-transparent pointer-events-none" />
-                <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4">
-                  <p className="font-archivo text-sm sm:text-base leading-none mb-1">{p.label}</p>
-                  <p className="label-mono text-white/60 text-[10px]">{p.caption}</p>
-                </div>
+                {/* Cinematic gradient: heavy bottom vignette, slight top fade */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-black/30 pointer-events-none" />
+                {/* Side vignette adds drama on hover */}
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_50%,rgba(0,0,0,0.55)_100%)] opacity-60 group-hover:opacity-30 transition-opacity duration-700 pointer-events-none" />
               </div>
             ))}
           </div>
 
-          <p className="label-mono text-white/30 mt-8 text-[11px]">→ Photography credit: True Power Media</p>
+          <p className="label-mono text-white/30 mt-8 text-[11px]">→ Photography by True Power Media</p>
         </div>
       </section>
 
