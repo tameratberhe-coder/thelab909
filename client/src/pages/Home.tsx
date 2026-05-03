@@ -136,7 +136,7 @@ export default function Home() {
             <div className="md:col-span-2 relative aspect-[16/10] overflow-hidden rounded-sm bg-lab-red text-white p-6 sm:p-8 group" data-testid="card-follow">
               <span className="absolute top-6 left-6 bg-white text-lab-red label-mono px-3 py-1 rounded-full">@thelab909</span>
               <div className="h-full flex flex-col justify-end">
-                <h3 className="font-archivo text-3xl sm:text-5xl leading-none">FOLLOW<br/>THE WORK.</h3>
+                <h3 className="font-archivo text-3xl sm:text-5xl leading-none">FOLLOW<br/>THE WERK.</h3>
                 <a href="https://www.instagram.com/thelab909/" target="_blank" rel="noopener" className="mt-5 inline-flex items-center gap-2 label-mono border-b border-white/60 pb-1 self-start hover:text-black hover:border-black">
                   Instagram <ArrowRight className="w-3.5 h-3.5" />
                 </a>
@@ -207,7 +207,7 @@ export default function Home() {
               <p className="label-mono text-white/50 mb-6">/ Film</p>
               <h2 className="font-display leading-[0.9]">
                 <span className="block text-[clamp(56px,12vw,180px)]">THIS IS</span>
-                <span className="block text-[clamp(56px,12vw,180px)] text-lab-red">THE WORK.</span>
+                <span className="block text-[clamp(56px,12vw,180px)] text-lab-red">THE WERK.</span>
               </h2>
             </div>
             <p className="label-mono text-white/40 max-w-xs">No music, no narration. Just the reps, the breath, the sound of the work.</p>
@@ -259,7 +259,7 @@ export default function Home() {
           </div>
           <div>
             <p className="label-mono text-white/50 mb-4">/ Coach</p>
-            <h2 className="font-archivo text-4xl sm:text-6xl leading-[0.95] mb-6">COACHED BY SOMEONE WHO&apos;S <span className="text-lab-red">DONE THE WORK.</span></h2>
+            <h2 className="font-archivo text-4xl sm:text-6xl leading-[0.95] mb-6">COACHED BY SOMEONE WHO&apos;S <span className="text-lab-red">DONE THE WERK.</span></h2>
             <p className="text-white/80 text-lg mb-4">The LAB 909 was founded — and is still run — by a coach who came up the same way he coaches now: with intention, accountability, and zero patience for shortcuts.</p>
             <p className="text-white/80 text-lg mb-8">Every session, every set, every cue is delivered by the person whose name is on the door.</p>
             <Link href="/book" className="inline-flex items-center gap-2 bg-white text-black font-bold uppercase tracking-wider text-sm px-6 py-4 rounded-full thrust hover:bg-lab-red hover:text-white">
