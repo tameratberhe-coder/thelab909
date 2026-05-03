@@ -3,6 +3,7 @@ import { Link, useLocation } from "wouter";
 import { ShoppingBag, Menu, X, User as UserIcon, LogOut, ChevronRight } from "lucide-react";
 import { useAuth } from "@/lib/auth";
 import { useCart } from "@/lib/cart";
+import { Logo } from "@/components/Logo";
 
 const NAV = [
   { href: "/book", label: "Book" },
@@ -28,9 +29,8 @@ export function Layout({ children }: { children: ReactNode }) {
         data-testid="site-header"
       >
         <div className="max-w-[1400px] mx-auto px-4 sm:px-8 h-16 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-1 hover-elevate active-elevate-2 px-2 -mx-2 py-1 rounded" data-testid="link-home">
-            <span className="font-archivo text-lg tracking-tight">THE LAB</span>
-            <span className="font-archivo text-lg tracking-tight text-lab-red">909</span>
+          <Link href="/" className="flex items-center hover-elevate active-elevate-2 px-2 -mx-2 py-1 rounded" data-testid="link-home" aria-label="The LAB 909 home">
+            <Logo variant="white" className="h-6 w-auto" testid="logo-header" />
           </Link>
 
           <nav className="hidden md:flex items-center gap-1">
@@ -180,8 +180,8 @@ export function Footer() {
             </ul>
           </div>
         </div>
-        <div className="font-archivo leading-none text-[clamp(80px,18vw,300px)] tracking-tighter bg-gradient-to-b from-white/30 via-white/10 to-transparent bg-clip-text text-transparent select-none pointer-events-none">
-          LAB&nbsp;909
+        <div className="py-4 select-none pointer-events-none">
+          <Logo variant="white" className="w-full h-auto opacity-30" />
         </div>
         <div className="border-t border-white/10 mt-8 pt-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 label-mono text-white/40">
           <span>© 2019–{new Date().getFullYear()} The LAB 909. All rights reserved.</span>

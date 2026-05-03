@@ -1,27 +1,29 @@
 import { Link } from "wouter";
 import { ArrowRight, Play } from "lucide-react";
 import { Ticker } from "@/components/Ticker";
-import heroPoster from "@/assets/hero-poster.jpg";
-import trainerImg from "@/assets/trainer-coaching.jpg";
+import { AutoVideo } from "@/components/AutoVideo";
+import { Logo } from "@/components/Logo";
+import { Layout } from "@/components/Layout";
+import { REELS } from "@/lib/videos";
 
 export default function Home() {
   return (
+    <Layout>
     <div className="bg-black text-white">
       {/* HERO */}
       <section className="relative min-h-screen flex flex-col justify-center overflow-hidden isolate" data-testid="hero">
         <div className="absolute inset-0 -z-30">
-          <iframe
-            title="LAB 909 hero"
-            src="https://player.vimeo.com/video/878478405?h=641cf57b6e&autoplay=1&loop=1&autopause=0&muted=1&background=1&title=0&byline=0&portrait=0&controls=0"
-            allow="autoplay; fullscreen; picture-in-picture"
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
-            style={{ width: "56.25vh", height: "100vh", minWidth: "100vw", minHeight: "177.77vw" }}
+          <AutoVideo
+            src={REELS.hero.src}
+            poster={REELS.hero.poster}
+            className="w-full h-full"
+            objectPosition="center"
+            testid="video-hero"
           />
         </div>
         <div className="absolute inset-0 -z-20 pointer-events-none" style={{
-          backgroundImage: `linear-gradient(105deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.55) 35%, rgba(0,0,0,0.30) 60%, rgba(0,0,0,0.85) 100%), linear-gradient(180deg, rgba(0,0,0,0.30) 0%, rgba(0,0,0,0.10) 40%, rgba(0,0,0,0.85) 100%)`,
+          backgroundImage: `linear-gradient(105deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.45) 35%, rgba(0,0,0,0.22) 60%, rgba(0,0,0,0.85) 100%), linear-gradient(180deg, rgba(0,0,0,0.30) 0%, rgba(0,0,0,0.10) 40%, rgba(0,0,0,0.85) 100%)`,
         }} />
-        <div className="absolute inset-0 -z-40" style={{ backgroundImage: `url(${heroPoster})`, backgroundSize: "cover", backgroundPosition: "center" }} />
 
         <div className="max-w-[1400px] mx-auto w-full px-4 sm:px-8 pt-32 pb-16">
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur border border-white/15 rounded-full px-4 py-1.5 mb-8" data-testid="hero-eyebrow">
@@ -94,7 +96,7 @@ export default function Home() {
 
       <Ticker />
 
-      {/* TRAIN — image cards */}
+      {/* TRAIN — video cards */}
       <section className="bg-black text-white py-24 sm:py-32 px-4 sm:px-8" data-testid="train">
         <div className="max-w-[1400px] mx-auto">
           <div className="grid md:grid-cols-2 gap-8 items-end mb-12">
@@ -107,7 +109,7 @@ export default function Home() {
 
           <div className="grid md:grid-cols-3 gap-4">
             <div className="md:row-span-2 relative aspect-[3/4] md:aspect-auto overflow-hidden rounded-sm group" data-testid="card-private">
-              <img src={trainerImg} alt="Private coaching at LAB 909" className="absolute inset-0 w-full h-full object-cover grayscale-[0.2] group-hover:scale-105 transition-transform duration-700" />
+              <AutoVideo src={REELS.jp.src} poster={REELS.jp.poster} className="absolute inset-0" testid="video-card-private" />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
               <div className="relative h-full flex flex-col justify-end p-6 sm:p-8">
                 <span className="inline-block self-start bg-lab-red text-white label-mono px-3 py-1 rounded-full mb-3">Private coaching</span>
@@ -120,8 +122,8 @@ export default function Home() {
             </div>
 
             <div className="md:col-span-2 relative aspect-[16/10] overflow-hidden rounded-sm group" data-testid="card-sports">
-              <div className="absolute inset-0 bg-gradient-to-br from-zinc-900 to-black" />
-              <div className="absolute -inset-1 opacity-30 mix-blend-screen bg-[radial-gradient(circle_at_30%_30%,#ee273744,transparent_50%)]" />
+              <AutoVideo src={REELS.aq.src} poster={REELS.aq.poster} className="absolute inset-0" testid="video-card-sports" />
+              <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/40 to-black/20" />
               <div className="relative h-full flex flex-col justify-end p-6 sm:p-8">
                 <span className="inline-block self-start bg-lab-red text-white label-mono px-3 py-1 rounded-full mb-3">Sports performance</span>
                 <h3 className="font-archivo text-3xl sm:text-5xl leading-none">BUILT FOR<br/>ATHLETES</h3>
@@ -197,33 +199,52 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FILM */}
+      {/* FILM — featured master + reel grid */}
       <section id="film" className="bg-black text-white py-24 sm:py-32 px-4 sm:px-8" data-testid="film">
         <div className="max-w-[1400px] mx-auto">
-          <p className="label-mono text-white/50 mb-6">/ Film</p>
-          <h2 className="font-display leading-[0.9] mb-12">
-            <span className="block text-[clamp(56px,12vw,180px)]">THIS IS</span>
-            <span className="block text-[clamp(56px,12vw,180px)] text-lab-red">THE WORK.</span>
-          </h2>
-          <div className="grid md:grid-cols-[2fr_1fr] gap-8 items-end">
-            <div className="aspect-[9/16] max-w-md mx-auto md:mx-0 bg-black border border-white/10 overflow-hidden">
-              <iframe
-                title="The LAB 909 film"
-                src="https://player.vimeo.com/video/878478405?h=641cf57b6e&title=0&byline=0&portrait=0"
-                allow="autoplay; fullscreen; picture-in-picture"
-                className="w-full h-full"
-                frameBorder={0}
-                allowFullScreen
-              />
+          <div className="flex items-end justify-between mb-12 gap-8 flex-wrap">
+            <div>
+              <p className="label-mono text-white/50 mb-6">/ Film</p>
+              <h2 className="font-display leading-[0.9]">
+                <span className="block text-[clamp(56px,12vw,180px)]">THIS IS</span>
+                <span className="block text-[clamp(56px,12vw,180px)] text-lab-red">THE WORK.</span>
+              </h2>
+            </div>
+            <p className="label-mono text-white/40 max-w-xs">No music, no narration. Just the reps, the breath, the sound of the work.</p>
+          </div>
+
+          {/* Featured */}
+          <div className="grid md:grid-cols-[2fr_1fr] gap-8 items-end mb-16">
+            <div className="aspect-[9/16] max-w-md mx-auto md:mx-0 bg-black border border-white/10 overflow-hidden rounded-sm">
+              <AutoVideo src={REELS.master.src} poster={REELS.master.poster} testid="video-film-master" />
             </div>
             <div>
-              <p className="label-mono text-white/50">Featured · 00:24</p>
+              <p className="label-mono text-white/50">Featured · Master Reel</p>
               <h3 className="font-archivo text-3xl sm:text-5xl leading-none mt-2 mb-6">PRESSURE.MOV</h3>
-              <p className="text-white/70 mb-6">A short look inside the facility. The reps, the breath, the sound of the work. No music, no narration. Just what we do.</p>
-              <a href="https://vimeo.com/878478405/641cf57b6e" target="_blank" rel="noopener" className="inline-flex items-center gap-2 border border-white/30 text-white label-mono px-5 py-3 rounded-full hover:bg-white hover:text-black thrust">
-                Watch on Vimeo <ArrowRight className="w-3.5 h-3.5" />
+              <p className="text-white/70 mb-6">A short look inside the facility. Athletes, coaches, the floor — captured raw.</p>
+              <a href="https://www.instagram.com/thelab909/" target="_blank" rel="noopener" className="inline-flex items-center gap-2 border border-white/30 text-white label-mono px-5 py-3 rounded-full hover:bg-white hover:text-black thrust">
+                More on Instagram <ArrowRight className="w-3.5 h-3.5" />
               </a>
             </div>
+          </div>
+
+          {/* Reel grid */}
+          <p className="label-mono text-white/50 mb-6">/ More from the floor</p>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+            {[REELS.alex, REELS.aq, REELS.sdsu, REELS.jp, REELS.app1, REELS.app2, REELS.cinematic, REELS.wide].map((r) => (
+              <div
+                key={r.id}
+                className={`relative ${r.orientation === "landscape" ? "aspect-video col-span-2" : "aspect-[9/16]"} overflow-hidden rounded-sm group bg-zinc-900 border border-white/5`}
+                data-testid={`reel-${r.id}`}
+              >
+                <AutoVideo src={r.src} poster={r.poster} testid={`video-reel-${r.id}`} />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-transparent pointer-events-none" />
+                <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4">
+                  <p className="font-archivo text-sm sm:text-base leading-none mb-1">{r.label}</p>
+                  <p className="label-mono text-white/60 text-[10px]">{r.caption}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -231,8 +252,9 @@ export default function Home() {
       {/* COACH */}
       <section className="bg-black text-white py-24 sm:py-32 px-4 sm:px-8 border-t border-white/10" data-testid="coach">
         <div className="max-w-[1400px] mx-auto grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
-          <div className="relative aspect-[3/4] overflow-hidden rounded-sm">
-            <img src={trainerImg} alt="Head coach at LAB 909" className="absolute inset-0 w-full h-full object-cover grayscale" />
+          <div className="relative aspect-[3/4] overflow-hidden rounded-sm bg-zinc-900">
+            <AutoVideo src={REELS.alex.src} poster={REELS.alex.poster} testid="video-coach" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
             <span className="absolute top-5 left-5 bg-lab-red text-white label-mono px-3 py-1 rounded-full">Head Coach</span>
           </div>
           <div>
@@ -249,8 +271,8 @@ export default function Home() {
 
       {/* CTA — RED */}
       <section className="bg-lab-red text-white py-24 sm:py-32 px-4 sm:px-8 relative overflow-hidden" data-testid="cta-block">
-        <div aria-hidden className="absolute right-0 bottom-0 pointer-events-none select-none">
-          <span className="font-archivo text-[clamp(220px,40vw,720px)] leading-none text-black/15">909</span>
+        <div aria-hidden className="absolute right-0 bottom-0 pointer-events-none select-none opacity-15">
+          <Logo variant="black" className="h-[clamp(220px,40vw,560px)] w-auto" />
         </div>
         <div className="relative max-w-[1400px] mx-auto">
           <p className="label-mono text-white/70 mb-6">/ Ready?</p>
@@ -270,5 +292,6 @@ export default function Home() {
         </div>
       </section>
     </div>
+    </Layout>
   );
 }
