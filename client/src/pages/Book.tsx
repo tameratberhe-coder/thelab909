@@ -207,7 +207,7 @@ function DateAndSlotPicker({
         label: String(d.getDate()),
         weekday: d.toLocaleDateString("en-US", { weekday: "short" }).toUpperCase(),
         isToday: i === 0,
-        closed: dow === 0,
+        closed: dow === 0 || dow === 3,
       });
     }
     return out;

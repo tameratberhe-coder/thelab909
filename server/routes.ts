@@ -84,8 +84,9 @@ export async function registerRoutes(httpServer: Server, app: Express): Promise<
     res.json(storage.listSessionTypes());
   });
 
-  // Generate available slots for a given date (YYYY-MM-DD) based on simple coach schedule.
-  // M-F 6a-8p, Sat 7a-12p, Sun closed. Hourly slots. Excludes past + already-booked.
+  // Generate available slots for a given date (YYYY-MM-DD) based on coach schedule.
+  // Mon/Tue/Thu: 5–10am + 2:30–8pm hourly · Fri: 5–10am hourly · Sat: 7am · Wed/Sun closed.
+  // Slot times are minute-offsets from midnight (e.g. 870 = 14:30). Excludes past + already-booked.
   app.get("/api/slots", (req, res) => {
     const date = String(req.query.date ?? "");
     if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) return res.status(400).json({ error: "Invalid date" });
@@ -94,13 +95,19 @@ export async function registerRoutes(httpServer: Server, app: Express): Promise<
     const startOfDay = new Date(y, m - 1, d, 0, 0, 0).getTime();
     const endOfDay = new Date(y, m - 1, d, 23, 59, 59).getTime();
     const dow = new Date(y, m - 1, d).getDay(); // 0=Sun
-    let hours: number[] = [];
-    if (dow === 0) hours = [];
-    else if (dow === 6) hours = [7, 8, 9, 10, 11];
-    else hours = [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19];
+    // Morning block 5–10am (hourly starts: 5, 6, 7, 8, 9)
+    const morning = [5, 6, 7, 8, 9].map((h) => h * 60);
+    // Afternoon/evening block 2:30–8pm (hourly starts: 2:30, 3:30, 4:30, 5:30, 6:30)
+    const evening = [14 * 60 + 30, 15 * 60 + 30, 16 * 60 + 30, 17 * 60 + 30, 18 * 60 + 30];
+    let mins: number[] = [];
+    if (dow === 1 || dow === 2 || dow === 4) mins = [...morning, ...evening]; // Mon, Tue, Thu
+    else if (dow === 5) mins = morning; // Fri
+    else if (dow === 6) mins = [7 * 60]; // Sat 7am only
+    else mins = []; // Wed, Sun closed
     const now = Date.now();
     const booked = new Set(storage.bookedStartsBetween(startOfDay, endOfDay));
-    const slots = hours.map((h) => new Date(y, m - 1, d, h, 0, 0).getTime())
+    const slots = mins
+      .map((min) => new Date(y, m - 1, d, Math.floor(min / 60), min % 60, 0).getTime())
       .filter((ts) => ts > now && !booked.has(ts))
       .map((ts) => ({ ts, label: new Date(ts).toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", hour12: true }) }));
     res.json({ date, slots, dow });
