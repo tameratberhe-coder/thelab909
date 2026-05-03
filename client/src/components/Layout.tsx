@@ -111,7 +111,6 @@ export function Footer() {
             <ul className="space-y-2 text-sm">
               <li><a href="https://www.instagram.com/thelab909/" target="_blank" rel="noopener" className="hover:text-lab-red">@thelab909</a></li>
               <li><a href="https://www.facebook.com/thelab909trainingfacility" target="_blank" rel="noopener" className="hover:text-lab-red">Facebook</a></li>
-              <li><span className="text-white/40">Inland Empire · 909</span></li>
             </ul>
           </div>
           <div>
@@ -126,9 +125,8 @@ export function Footer() {
         <div className="py-4 select-none pointer-events-none">
           <Logo variant="white" className="w-full h-auto opacity-30" />
         </div>
-        <div className="border-t border-white/10 mt-8 pt-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 label-mono text-white/40">
+        <div className="mt-8 pt-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 label-mono text-white/40">
           <span>© 2019–{new Date().getFullYear()} The LAB 909. All rights reserved.</span>
-          <span>Inland Empire · Southern California · 909</span>
         </div>
       </div>
     </footer>
