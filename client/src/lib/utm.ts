@@ -2,7 +2,7 @@
  * Lightweight first-touch UTM capture. (Board memo #001, P7.)
  *
  * Reads ?utm_source / ?utm_medium / ?utm_campaign from the URL on first load
- * and persists them in localStorage so subsequent navigations (and the Stripe
+ * and persists them in localStorage so subsequent navigations (and the Square
  * Payment Link) can carry the source through the funnel without server-side
  * sessions.
  *
@@ -11,7 +11,7 @@
  *
  * When real analytics are wired (PostHog / Plausible / GA4), pipe the result
  * of getStoredUtm() into the identify/event payload. For now we just stash it
- * and forward it to Stripe.
+ * and forward it to Square.
  */
 
 const KEY = "lab909:utm";

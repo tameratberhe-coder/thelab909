@@ -7,18 +7,18 @@ import { fmtDateTime, money } from "@/lib/format";
 import { Check, ArrowRight } from "lucide-react";
 
 /**
- * /booked — Stripe Payment Link returns here after a successful checkout.
+ * /booked — Square Checkout Link returns here after a successful payment.
  * (Design move D4.)
  *
- * The booking flow encodes session metadata into the Stripe
- * `client_reference_id` as `lab909:<slug>:<startsAtMs>`. Stripe forwards that
- * value back via the redirect URL on success, but the exact param name varies
- * by Stripe configuration, so we accept any of: `client_reference_id`,
- * `cri`, or `ref`.
+ * The booking flow encodes session metadata into the redirect URL as
+ * `ref=lab909:<slug>:<startsAtMs>`. Square preserves URL parameters on the
+ * post-payment redirect when the link's "Include URL parameters" toggle is
+ * on. For backwards-compat with old Stripe-issued receipts we still accept
+ * `client_reference_id` and `cri` as well.
  *
  * Until the backend deploys to validate the payment server-side, this page
  * trusts the URL params for display only — the real source of truth is the
- * Stripe dashboard. We also stash the locked slot in localStorage so the
+ * Square dashboard. We also stash the locked slot in localStorage so the
  * athlete can return to the page later from their phone history.
  */
 export default function Booked() {
@@ -80,13 +80,13 @@ export default function Booked() {
                   </div>
                   <div className="flex justify-between">
                     <dt className="text-white/50">Receipt</dt>
-                    <dd className="text-white/70">Sent by Stripe to your email</dd>
+                    <dd className="text-white/70">Sent by Square to your email</dd>
                   </div>
                 </dl>
               </>
             ) : (
               <p className="text-white/80 text-lg mb-8">
-                Payment received. Stripe just emailed your receipt. The coach will follow up
+                Payment received. Square just emailed your receipt. The coach will follow up
                 within 24 hours to confirm your time.
               </p>
             )}
@@ -125,7 +125,7 @@ export default function Booked() {
   );
 }
 
-/** Pull the booking reference out of the URL Stripe redirected us to. */
+/** Pull the booking reference out of the URL Square redirected us to. */
 function readReference(): { slug: string; startsAt: number } | null {
   if (typeof window === "undefined") return null;
   // Hash routing: real query string lives inside the hash on /booked.

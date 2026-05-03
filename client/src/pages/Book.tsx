@@ -6,7 +6,7 @@ import { money, fmtDate, fmtDateTime, isoDate } from "@/lib/format";
 import { imageFor } from "@/lib/images";
 import { getStaticSlots, type SlotsResult } from "@/lib/static-slots";
 import { STATIC_SESSION_TYPES } from "@/lib/session-types-static";
-import { buildStripeUrl, isStripeLinkConfigured } from "@/lib/stripe-link";
+import { buildSquareUrl, isSquareLinkConfigured } from "@/lib/square-link";
 import { getStoredUtm } from "@/lib/utm";
 import type { SessionType } from "@shared/schema";
 import { ArrowRight, Check, Calendar as CalIcon } from "lucide-react";
@@ -41,7 +41,7 @@ export default function Book() {
     next();
   }
 
-  // "Lock it in" — redirect to Stripe Payment Link with booking metadata (P1).
+  // "Lock it in" — redirect to Square Online Checkout with booking metadata.
   // Free consultations skip payment and just confirm the slot client-side.
   function onConfirm() {
     setError(null);
@@ -65,13 +65,13 @@ export default function Book() {
       window.location.href = `mailto:hello@thelab909.com?subject=${subject}&body=${body}`;
       return;
     }
-    if (!isStripeLinkConfigured()) {
+    if (!isSquareLinkConfigured(selectedType.slug)) {
       setError(
         "Online checkout is being set up. Email hello@thelab909.com or DM @thelab909 to lock this slot.",
       );
       return;
     }
-    const url = buildStripeUrl({
+    const url = buildSquareUrl({
       sessionTypeSlug: selectedType.slug,
       startsAt: selectedTs,
       email: user?.email ?? null,
@@ -357,7 +357,7 @@ function ReviewPay({
         {!isFree && (
           <div className="border border-white/10 bg-white/5 rounded p-6">
             <p className="label-mono text-white/50 mb-1">PAYMENT</p>
-            <p className="text-white/70 text-sm">Hitting “Lock it in” sends you to our secure Stripe checkout. Your slot is reserved when the payment clears.</p>
+            <p className="text-white/70 text-sm">Hitting “Lock it in” sends you to our secure Square checkout. Your slot is reserved when the payment clears.</p>
           </div>
         )}
 

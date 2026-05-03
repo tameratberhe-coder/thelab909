@@ -3,7 +3,7 @@
  * (Board memo #001, P4.) Mirrors the seeded rows from server/storage.ts so the
  * booking page renders identically with or without a backend.
  *
- * IDs are stable; the booking flow uses them in the URL passed to Stripe so
+ * IDs are stable; the booking flow uses them in the URL passed to Square so
  * we can reconcile sessions later.
  */
 import type { SessionType } from "@shared/schema";

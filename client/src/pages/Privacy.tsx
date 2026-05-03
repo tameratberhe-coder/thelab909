@@ -26,7 +26,7 @@ export default function Privacy() {
               <li><strong>Account info:</strong> name, email, phone, password (hashed).</li>
               <li><strong>Booking info:</strong> session type, date/time, notes you submit, attendance.</li>
               <li><strong>Health intake:</strong> injury history, training goals, emergency contact — only what you choose to share.</li>
-              <li><strong>Payment:</strong> handled by Stripe. We never see or store full card numbers.</li>
+              <li><strong>Payment:</strong> handled by Square. We never see or store full card numbers.</li>
               <li><strong>Device + analytics:</strong> IP, browser, pages viewed, UTM parameters, referrers.</li>
               <li><strong>Photo / video / likeness:</strong> captured during sessions and used for marketing, social, and editorial purposes under the mandatory release in our participant agreement.</li>
             </ul>
@@ -38,7 +38,7 @@ export default function Privacy() {
           </Section>
 
           <Section h="4. Sharing">
-            With service providers we need to operate: Stripe (payments), Netlify (hosting),
+            With service providers we need to operate: Square (payments), Netlify (hosting),
             email/SMS providers, and analytics. We disclose information when required by law.
           </Section>
 
@@ -59,7 +59,7 @@ export default function Privacy() {
           </Section>
 
           <Section h="8. Security">
-            Passwords are hashed. Payments are tokenized through Stripe. No system is 100%
+            Passwords are hashed. Payments are tokenized through Square. No system is 100%
             secure — if we ever have a breach affecting your data, we will notify you.
           </Section>
 
