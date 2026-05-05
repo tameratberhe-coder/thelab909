@@ -1,3 +1,7 @@
+// BRAND NOTE: 'Werk' (with an E) is the intentional spelling.
+// Do not auto-correct to 'Work' on any content update.
+// See Lab909_OwnershipHandoff.pdf section 06.
+
 import { useState } from "react";
 import { Logo } from "@/components/Logo";
 import { LabA } from "@/components/LabA";
@@ -185,6 +189,12 @@ export default function Soon() {
 
                     <p className="label-mono text-white/35 text-[10px] leading-relaxed pt-1">
                       No spam. No selling your data. Just a heads-up when doors open and a chance at founding pricing.
+                    </p>
+                    <p className="label-mono text-white/35 text-[10px] leading-relaxed">
+                      By joining you agree to our{" "}
+                      <a href="/#/privacy" className="underline hover:text-white/60">
+                        Privacy Policy.
+                      </a>
                     </p>
                   </form>
                 </>

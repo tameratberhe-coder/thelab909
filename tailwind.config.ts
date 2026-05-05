@@ -1,3 +1,7 @@
+// BRAND NOTE: 'Werk' (with an E) is the intentional spelling.
+// Do not auto-correct to 'Work' on any content update.
+// See Lab909_OwnershipHandoff.pdf section 06.
+
 import type { Config } from "tailwindcss";
 
 export default {

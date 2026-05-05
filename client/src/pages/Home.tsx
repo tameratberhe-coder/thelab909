@@ -1,3 +1,7 @@
+// BRAND NOTE: 'Werk' (with an E) is the intentional spelling.
+// Do not auto-correct to 'Work' on any content update.
+// See Lab909_OwnershipHandoff.pdf section 06.
+
 import { Link } from "wouter";
 import { ArrowRight } from "lucide-react";
 import { Ticker } from "@/components/Ticker";
@@ -67,13 +71,16 @@ export default function Home() {
             </a>
           </div>
 
-          {/* Credentials strip. Proof above the fold (P3). Edit values in lib/credentials.ts. */}
+          {/* Facility strip. Above-the-fold positioning. Neutralized to facility-level
+              copy May 5, 2026 (Memo #004 P3) ahead of ownership transfer. Personal
+              receipts (NASM-CPT, USAW, six-years coaching, D-1 placements) removed.
+              Revert to personal claims requires written sign-off from the operator. */}
           <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl" data-testid="hero-credentials">
             {[
-              { b: "Sport", s: "Strength · Speed · Conditioning" },
-              { b: "6+ yrs", s: "Coaching since 2019" },
-              { b: "D-1 prep", s: "Athletes placed in college programs" },
-              { b: "Cert.", s: "NASM-CPT · USAW · CPR/AED" },
+              { b: "Inland Empire", s: "The training ground" },
+              { b: "Six services", s: "One standard" },
+              { b: "By appointment", s: "Sessions booked direct" },
+              { b: "Werk.", s: "That's the whole pitch" },
             ].map((s) => (
               <div key={s.b} className="border-l-2 border-lab-red pl-4">
                 <div className="font-archivo text-xl sm:text-2xl leading-none">{s.b}</div>
